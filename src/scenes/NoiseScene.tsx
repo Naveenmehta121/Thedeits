@@ -1,165 +1,243 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowDown, Sparkles } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const NOISE = [
-  'cut carbs',
-  'eat clean',
-  'detox',
-  '5 meals a day',
-  'no sugar ever',
-  'skip dinner',
-  '1200 kcal',
-  'keto only',
-  'fast 16 hours',
-  'track every gram',
-  'no fruit at night',
-  'cheat day guilt',
+// Curated conflicting diet noise phrases with structured positional clusters
+const NOISE_TAGS = [
+  { text: 'Cut all carbs', pos: 'top-[14%] left-[6%] md:left-[12%]', drift: { x: -60, y: -30 }, rot: -6 },
+  { text: 'Keto only', pos: 'top-[18%] right-[8%] md:right-[14%]', drift: { x: 60, y: -25 }, rot: 5 },
+  { text: '1200 kcal limit', pos: 'top-[28%] left-[4%] md:left-[8%]', drift: { x: -80, y: -10 }, rot: -8 },
+  { text: 'Fast 16 hours', pos: 'top-[30%] right-[5%] md:right-[10%]', drift: { x: 75, y: -15 }, rot: 7 },
+  { text: 'Detox cleanse', pos: 'bottom-[34%] left-[5%] md:left-[10%]', drift: { x: -70, y: 30 }, rot: 6 },
+  { text: 'No fruit after 6 PM', pos: 'bottom-[32%] right-[6%] md:right-[12%]', drift: { x: 70, y: 25 }, rot: -5 },
+  { text: 'Skip dinner', pos: 'bottom-[18%] left-[8%] md:left-[16%]', drift: { x: -50, y: 50 }, rot: -4 },
+  { text: 'Track every single gram', pos: 'bottom-[16%] right-[8%] md:right-[15%]', drift: { x: 60, y: 45 }, rot: 4 },
 ];
 
-type Frag = {
-  text: string;
-  x: number; // vw
-  y: number; // vh
-  z: number; // depth 0..1
-  r: number; // rotation deg
-};
-
-// deterministic pseudo-random for stable layout
-const rand = (seed: number) => {
-  const x = Math.sin(seed * 99.13) * 43758.5453;
-  return x - Math.floor(x);
-};
-
-function buildFrags(count: number): Frag[] {
-  const used: Frag[] = [];
-  for (let i = 0; i < count; i++) {
-    const x = 6 + rand(i + 1) * 88;
-    const y = 12 + rand(i + 9) * 72;
-    const z = rand(i + 17);
-    const r = (rand(i + 23) - 0.5) * 16;
-    used.push({ text: NOISE[i % NOISE.length], x, y, z, r });
-  }
-  return used;
-}
-
 export default function NoiseScene() {
-  const root = useRef<HTMLDivElement>(null);
-  const isMobile = useRef(typeof window !== 'undefined' && window.innerWidth < 768);
+  const root = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+  const stage1Ref = useRef<HTMLDivElement>(null);
+  const stage2Ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return;
+    if (reduce) {
+      if (stage1Ref.current) stage1Ref.current.style.display = 'none';
+      if (stage2Ref.current) stage2Ref.current.style.opacity = '1';
+      if (bgRef.current) bgRef.current.style.backgroundColor = '#F6F3EC';
+      return;
+    }
 
     const ctx = gsap.context(() => {
-      const frags = gsap.utils.toArray<HTMLElement>('.noise-frag');
-      const bg = root.current!.querySelector('.noise-bg') as HTMLElement;
-      const headlineWords = gsap.utils.toArray<HTMLElement>('.noise-head-word');
-      const finalLine = root.current!.querySelector('.noise-final') as HTMLElement;
+      const frags = gsap.utils.toArray<HTMLElement>('.noise-tag');
+      const stage1 = stage1Ref.current;
+      const stage2 = stage2Ref.current;
+      const bg = bgRef.current;
+
+      if (!root.current || !stage1 || !stage2 || !bg) return;
+
+      // Initial states
+      gsap.set(stage1, { opacity: 1, y: 0, scale: 1 });
+      gsap.set(stage2, { opacity: 0, y: 35, scale: 0.96 });
+      gsap.set(bg, { backgroundColor: '#0B221A' });
+
+      // Responsive scrub length: 90% viewport scroll on desktop, 75% on mobile
+      const isMobile = window.innerWidth < 768;
+      const scrollDistance = isMobile ? '+=75%' : '+=95%';
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: root.current!,
+          trigger: root.current,
           start: 'top top',
-          end: '+=220%',
+          end: scrollDistance,
           pin: true,
-          scrub: 1,
+          scrub: 0.8,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 
-      // background shift obsidian -> cream
-      tl.fromTo(
-        bg,
-        { backgroundColor: '#12261F' },
-        { backgroundColor: '#F6F3EC', duration: 1, ease: 'none' },
-        0,
-      );
-
-      // fragments drift + blur + fade
+      // ── Step 1 (0.00 -> 0.40): Noise tags drift away and fade ──
       frags.forEach((f, i) => {
-        const z = parseFloat(f.dataset.z || '0.5');
-        const driftX = (i % 2 === 0 ? 1 : -1) * (40 + z * 60);
-        const driftY = -(30 + z * 50);
+        const dx = parseFloat(f.dataset.dx || '0');
+        const dy = parseFloat(f.dataset.dy || '0');
         tl.to(
           f,
           {
-            x: `+=${driftX}`,
-            y: `+=${driftY}`,
+            x: dx,
+            y: dy,
             opacity: 0,
-            filter: 'blur(12px)',
-            duration: 0.55,
+            scale: 0.85,
+            filter: 'blur(10px)',
+            duration: 0.35,
             ease: 'power2.in',
           },
-          0.05 + (1 - z) * 0.2,
+          0.02 + (i % 3) * 0.04,
         );
       });
 
-      // headline fades out with fragments
+      // ── Step 2 (0.10 -> 0.45): Stage 1 headline dissolves ──
       tl.to(
-        '.noise-headline',
-        { opacity: 0, y: -20, duration: 0.25, ease: 'power2.in' },
-        0.45,
+        stage1,
+        {
+          opacity: 0,
+          y: -30,
+          scale: 0.95,
+          filter: 'blur(8px)',
+          duration: 0.35,
+          ease: 'power2.in',
+        },
+        0.12,
       );
 
-      // final sharp line appears
-      tl.fromTo(
-        finalLine,
-        { opacity: 0, y: 30, filter: 'blur(8px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.4, ease: 'power3.out' },
-        0.7,
+      // ── Step 3 (0.25 -> 0.70): Background morphs from dark obsidian green to warm cream ──
+      tl.to(
+        bg,
+        {
+          backgroundColor: '#F6F3EC',
+          duration: 0.45,
+          ease: 'power1.inOut',
+        },
+        0.25,
       );
 
+      // ── Step 4 (0.42 -> 0.85): Stage 2 ("What you need is a plan made for you") blooms at center ──
       tl.to(
-        '.noise-eyebrow',
-        { opacity: 0, duration: 0.2 },
-        0,
+        stage2,
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          duration: 0.45,
+          ease: 'power2.out',
+        },
+        0.42,
       );
+
+      // ── Step 5 (0.85 -> 1.00): Rest pause in full clarity before scrolling into The Plan ──
+      tl.to({}, { duration: 0.15 });
     }, root);
+
     return () => ctx.revert();
   }, []);
 
-  const count = isMobile.current ? 6 : 12;
-  const frags = buildFrags(count);
-
   return (
-    <section ref={root} className="relative h-[100dvh] w-full overflow-hidden">
-      <div className="noise-bg absolute inset-0" />
+    <section
+      ref={root}
+      className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col items-center justify-center"
+      style={{ backgroundColor: '#0B221A' }}
+    >
+      {/* Dynamic Background Transition Layer */}
+      <div ref={bgRef} className="absolute inset-0 z-0 transition-colors pointer-events-none" />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        <p className="noise-eyebrow eyebrow mb-8 text-cream/55">The Noise</p>
+      {/* Subtle organic vignette */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.18)_100%)]"
+        aria-hidden="true"
+      />
 
-        <h2 className="noise-headline display-xxl max-w-[14ch] text-cream text-balance">
-          Too much advice.
-          <br />
-          Not enough clarity.
-        </h2>
-
-        <p className="noise-final display-xl mt-12 max-w-[18ch] font-light text-green-deep opacity-0 text-balance">
-          What you need is a plan made for you.
-        </p>
-      </div>
-
-      {/* Floating fragments */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        {frags.map((f, i) => (
-          <span
+      {/* Floating Conflicting Diet Noise Badges */}
+      <div className="pointer-events-none absolute inset-0 z-[2] overflow-hidden">
+        {NOISE_TAGS.map((tag, i) => (
+          <div
             key={i}
-            className="noise-frag absolute select-none whitespace-nowrap font-display text-cream/70 will-change-transform"
-            data-z={f.z}
+            className={`noise-tag absolute select-none ${tag.pos} will-change-transform`}
+            data-dx={tag.drift.x}
+            data-dy={tag.drift.y}
             style={{
-              left: `${f.x}vw`,
-              top: `${f.y}vh`,
-              fontSize: `clamp(1.1rem, ${1.4 + f.z * 1.6}vw, ${1.6 + f.z * 2}rem)`,
-              transform: `translate(-50%, -50%) rotate(${f.r}deg)`,
-              opacity: 0.4 + f.z * 0.45,
-              filter: `blur(${(1 - f.z) * 0.6}px)`,
+              transform: `rotate(${tag.rot}deg)`,
             }}
           >
-            {f.text}
-          </span>
+            <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3.5 py-1.5 backdrop-blur-md shadow-sm transition-transform">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#B88A4A]/80" />
+              <span className="font-body text-xs sm:text-sm font-medium tracking-wide text-[#EAEBE5]/85">
+                {tag.text}
+              </span>
+            </div>
+          </div>
         ))}
+      </div>
+
+      {/* Centered Content Container with CSS Grid Overlay (Both stages share exact vertical center) */}
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-6 py-16 sm:px-8">
+        <div className="grid grid-cols-1 items-center justify-center">
+
+          {/* ── STAGE 1: THE NOISE ───────────────────────────────────────────── */}
+          <div
+            ref={stage1Ref}
+            className="col-start-1 row-start-1 flex flex-col items-center text-center will-change-transform"
+          >
+            {/* Pill Eyebrow */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-[#EAEBE5]/80 backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#B88A4A] animate-pulse" />
+              <span>The Noise</span>
+            </div>
+
+            {/* Display Headline */}
+            <h2
+              className="text-white text-balance max-w-[15ch]"
+              style={{
+                fontFamily: "'Fraunces', Georgia, serif",
+                fontWeight: 300,
+                lineHeight: 1.08,
+                letterSpacing: '-0.03em',
+                fontSize: 'clamp(2.4rem, 5.2vw, 4.25rem)',
+              }}
+            >
+              Too much advice.
+              <br />
+              <span className="italic font-normal text-[#E7ECE4]">Not enough clarity.</span>
+            </h2>
+
+            <p className="mt-6 max-w-md text-sm sm:text-base text-[#EAEBE5]/70 leading-relaxed font-body">
+              Every feed serves a new rule. Fasting, detoxes, calorie apps, and contradictory claims that ignore your actual life.
+            </p>
+          </div>
+
+          {/* ── STAGE 2: THE CLARITY ("What you need is a plan made for you") ─ */}
+          <div
+            ref={stage2Ref}
+            className="col-start-1 row-start-1 flex flex-col items-center text-center will-change-transform opacity-0 pointer-events-auto"
+          >
+            {/* Pill Eyebrow */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1F3D33]/20 bg-[#1F3D33]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-[#1F3D33] backdrop-blur-md">
+              <Sparkles size={13} className="text-[#B88A4A]" />
+              <span>The Shift to Clarity</span>
+            </div>
+
+            {/* Hero Reveal Headline */}
+            <h2
+              className="text-[#1F3D33] text-balance max-w-[16ch]"
+              style={{
+                fontFamily: "'Fraunces', Georgia, serif",
+                fontWeight: 300,
+                lineHeight: 1.06,
+                letterSpacing: '-0.03em',
+                fontSize: 'clamp(2.5rem, 5.4vw, 4.5rem)',
+              }}
+            >
+              What you need is a plan{' '}
+              <span className="italic font-normal text-[#B88A4A]">made for you.</span>
+            </h2>
+
+            {/* Supporting Copy */}
+            <p className="mt-6 max-w-xl text-base sm:text-lg text-[#1F3D33]/80 leading-relaxed font-body font-normal">
+              Not another generic internet template. Nutrition paced around your circadian rhythm, home kitchen, and real routine.
+            </p>
+
+            {/* Flow to The Plan */}
+            <div className="mt-8 flex items-center gap-2 rounded-full bg-[#1F3D33]/5 border border-[#1F3D33]/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#1F3D33]/70 font-medium">
+              <span>Scroll to explore the framework</span>
+              <ArrowDown size={14} className="text-[#B88A4A] animate-bounce" />
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

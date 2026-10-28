@@ -274,3 +274,4 @@ export const siteConfig = {
 - **Copyright**: © 2026 **The Diet's** (Founded by Dt. Radha Mishra & Dt. Surbhi Kumari). All rights reserved.
 - **Repository**: [Naveenmehta121/Thedeits](https://github.com/Naveenmehta121/Thedeits.git)
 - **Tagline**: *आहार शुद्धौ सत्त्वशुद्धिः*
+
