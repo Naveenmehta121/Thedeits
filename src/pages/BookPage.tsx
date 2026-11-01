@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Link, useSearchParams } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { Check, MessageCircle, Send, Mail } from 'lucide-react';
+import { Check, MessageCircle, Send } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import { useSeo } from '@/hooks/useSeo';
 import { siteConfig } from '@/data/siteConfig';
@@ -209,7 +209,7 @@ export default function BookPage() {
   };
 
   const inputClass =
-    'w-full rounded-xl border border-green-deep/25 bg-cream px-4 py-3 text-base text-green-deep placeholder:text-green-deep/40 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40';
+    'w-full rounded-xl border border-green-deep/25 bg-cream px-4 py-3 text-base text-green-deep placeholder:text-green-deep/40 transition-colors duration-300 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40 scroll-mt-28';
   const labelClass = 'mb-2 block text-sm font-medium text-green-deep';
   const errorClass = 'mt-1.5 text-xs font-semibold text-red-700';
 
@@ -239,14 +239,6 @@ export default function BookPage() {
 
     const whatsappUrl = `https://wa.me/918340735168?text=${encodeURIComponent(directMsg)}`;
 
-    const mailtoUrl = lastData
-      ? `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-          `Consultation Request: ${lastData.fullName} (${selectedProgram})`
-        )}&body=${encodeURIComponent(
-          `Hi The Diets Team,\n\nI would like to request a consultation with the following details:\n\n• Name: ${lastData.fullName}\n• Phone: ${lastData.whatsapp}\n• Email: ${lastData.email}\n• Program: ${selectedProgram}\n• Dietitian Preference: ${notes}\n\nThank you!`
-        )}`
-      : `mailto:${siteConfig.contact.email}?subject=Consultation%20Request`;
-
     return (
       <>
         <PageHero eyebrow="Book a Consultation" title="Thank you." />
@@ -260,34 +252,19 @@ export default function BookPage() {
                 Your consultation request has been sent!
               </h2>
               <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-green-deep/80 text-pretty md:text-base">
-                Your details have been dispatched to our team at{' '}
-                <strong className="text-green-deep font-semibold">{siteConfig.contact.email}</strong>.
-                We will reach out to you within 24 hours to schedule your video slot.
+                We have received your details. Our clinical team will review your enquiry and reach out to you within 24 hours to schedule your unhurried video slot.
               </p>
 
-              <div className="mt-8 rounded-xl border border-green-deep/10 bg-cream/70 p-4 text-xs text-green-deep/75 max-w-md mx-auto">
-                <p className="flex items-center justify-center gap-1.5 font-medium text-green-deep mb-1">
-                  <Mail size={14} /> Need an instant response?
-                </p>
-                You can also message us directly on WhatsApp or trigger an instant email from your device below.
-              </div>
-
-              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-solid"
                 >
-                  <MessageCircle size={16} /> Open in WhatsApp
+                  <MessageCircle size={16} /> Chat on WhatsApp
                 </a>
-                <a
-                  href={mailtoUrl}
-                  className="btn-outline"
-                >
-                  <Mail size={16} /> Send via Email App
-                </a>
-                <Link to="/" className="text-sm font-medium text-green-deep/70 hover:text-green-deep transition-colors px-3 py-2">
+                <Link to="/" className="btn-outline">
                   Back to home
                 </Link>
               </div>
@@ -309,8 +286,9 @@ export default function BookPage() {
       <section ref={root} className="relative w-full bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-2xl px-6 md:px-12">
           <form
+            id="booking-form"
             onSubmit={handleSubmit(onSubmit)}
-            className="book-card rounded-[2rem] border border-green-deep/15 bg-sage/40 p-7 md:p-10"
+            className="book-card scroll-mt-28 rounded-[2rem] border border-green-deep/15 bg-sage/40 p-7 md:p-10"
             noValidate
           >
             <div className="space-y-6">

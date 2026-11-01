@@ -74,12 +74,24 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
-              to="/book"
-              className="hidden md:inline-flex items-center justify-center rounded-full border border-[#EAEBE5]/30 bg-white/[0.04] px-5 py-2 text-sm font-normal text-[#EAEBE5] backdrop-blur-md transition-all duration-300 hover:border-[#EAEBE5]/65 hover:bg-white/[0.1] hover:text-white active:scale-[0.98]"
-            >
-              Book a Consultation
-            </Link>
+            {location.pathname === '/book' ? (
+              <button
+                type="button"
+                onClick={() => {
+                  document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="hidden md:inline-flex items-center justify-center rounded-full border border-gold/60 bg-gold/15 px-5 py-2 text-sm font-medium text-cream backdrop-blur-md transition-all duration-300 hover:border-gold hover:bg-gold/25 active:scale-[0.98]"
+              >
+                Book a Consultation
+              </button>
+            ) : (
+              <Link
+                to="/book"
+                className="hidden md:inline-flex items-center justify-center rounded-full border border-[#EAEBE5]/30 bg-white/[0.04] px-5 py-2 text-sm font-normal text-[#EAEBE5] backdrop-blur-md transition-all duration-300 hover:border-[#EAEBE5]/65 hover:bg-white/[0.1] hover:text-white active:scale-[0.98]"
+              >
+                Book a Consultation
+              </Link>
+            )}
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
