@@ -5,6 +5,7 @@ import PlanScene from '@/scenes/PlanScene';
 import MeetDietitians from '@/scenes/MeetDietitians';
 import HowItWorks from '@/scenes/HowItWorks';
 import WhatWeHelp from '@/scenes/WhatWeHelp';
+import ScrollReveal from '@/components/ScrollReveal';
 import CloseScene from '@/scenes/CloseScene';
 import FaqSection from '@/sections/FaqSection';
 
@@ -44,6 +45,29 @@ export default function HomePage() {
       <MeetDietitians />
       <HowItWorks />
       <WhatWeHelp />
+      {/* Editorial Scroll Reveal Philosophy */}
+      <section className="relative w-full bg-[#0B221A] py-24 md:py-36 px-6 overflow-hidden">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="eyebrow mb-6 text-cream/50">Our Philosophy</p>
+          <ScrollReveal
+            mode="scrub"
+            splitBy="words"
+            effect="fade"
+            stagger={0.05}
+            duration={0.8}
+            smoothing={0}
+            baseOpacity={0.12}
+            baseRotation={2}
+            baseOffset={0}
+            enableBlur={true}
+            blurStrength={4}
+            containerClassName="my-0"
+            textClassName="display-xl md:display-xxl font-light text-cream text-balance leading-snug"
+          >
+            When does a diet truly succeed? Not when you starve. Not when you eliminate every food you love. A diet succeeds when it fits gently into the life you already live.
+          </ScrollReveal>
+        </div>
+      </section>
       <FaqSection />
       <CloseScene />
     </>
