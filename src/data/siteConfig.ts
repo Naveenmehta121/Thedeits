@@ -29,6 +29,9 @@ export const siteConfig = {
     developerName: "Silly Media",
     developerUrl: "https://sillymedia.co.in",
   },
+  integrations: {
+    web3FormsKey: "fca00f1c-a4f8-4cb6-b5d7-10498311a979",
+  },
 
   videos: {
     hero: '',

@@ -113,14 +113,57 @@ export default function BookPage() {
         ? 'Dt. Surbhi Kumari'
         : 'No Preference (Best Fit)';
 
-    // 1. Dispatch email notification via free FormSubmit service directly to the clinic email
+    // 1. Dispatch email notification via Web3Forms API using your access key
     try {
-      await fetch(`https://formsubmit.co/ajax/${siteConfig.contact.email}`, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
+        body: JSON.stringify({
+          access_key: siteConfig.integrations.web3FormsKey,
+          name: data.fullName,
+          phone: data.whatsapp,
+          email: data.email,
+          dietitian: dietitianLabel,
+          goal: data.goal,
+          program: selectedProgram,
+          message: data.message || 'None provided',
+          subject: `New Consultation Request: ${data.fullName} (${selectedProgram})`,
+          from_name: 'The Diets Booking System',
+        }),
+      });
+
+      const json = await res.json().catch(() => null);
+      if (!json || !json.success) {
+        // Fallback to FormSubmit if Web3Forms is unavailable
+        await fetch(`https://formsubmit.co/ajax/${siteConfig.contact.email}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            'Full Name': data.fullName,
+            'Phone / WhatsApp': data.whatsapp,
+            'Email Address': data.email,
+            'Selected Program': selectedProgram,
+            'Preferred Dietitian': dietitianLabel,
+            'Primary Health Goal': data.goal,
+            'Client Routine / Note': data.message || 'None provided',
+            _subject: `New Consultation Request: ${data.fullName} (${selectedProgram})`,
+            _template: 'table',
+            _captcha: 'false',
+          }),
+        }).catch(() => {});
+      }
+    } catch (err) {
+      console.warn('Web3Forms dispatch notice:', err);
+      // Secondary fallback
+      fetch(`https://formsubmit.co/ajax/${siteConfig.contact.email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           'Full Name': data.fullName,
           'Phone / WhatsApp': data.whatsapp,
@@ -129,13 +172,10 @@ export default function BookPage() {
           'Preferred Dietitian': dietitianLabel,
           'Primary Health Goal': data.goal,
           'Client Routine / Note': data.message || 'None provided',
-          _subject: `New Consultation Request: ${data.fullName} (${selectedProgram})`,
-          _template: 'table',
+          _subject: `New Consultation Request: ${data.fullName}`,
           _captcha: 'false',
         }),
-      });
-    } catch (err) {
-      console.warn('Email dispatch non-blocking notice:', err);
+      }).catch(() => {});
     }
 
     // 2. Pre-format WhatsApp link
@@ -199,6 +239,14 @@ export default function BookPage() {
 
     const whatsappUrl = `https://wa.me/918340735168?text=${encodeURIComponent(directMsg)}`;
 
+    const mailtoUrl = lastData
+      ? `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
+          `Consultation Request: ${lastData.fullName} (${selectedProgram})`
+        )}&body=${encodeURIComponent(
+          `Hi The Diets Team,\n\nI would like to request a consultation with the following details:\n\n• Name: ${lastData.fullName}\n• Phone: ${lastData.whatsapp}\n• Email: ${lastData.email}\n• Program: ${selectedProgram}\n• Dietitian Preference: ${notes}\n\nThank you!`
+        )}`
+      : `mailto:${siteConfig.contact.email}?subject=Consultation%20Request`;
+
     return (
       <>
         <PageHero eyebrow="Book a Consultation" title="Thank you." />
@@ -212,29 +260,34 @@ export default function BookPage() {
                 Your consultation request has been sent!
               </h2>
               <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-green-deep/80 text-pretty md:text-base">
-                Your details have been emailed directly to our clinical team at{' '}
+                Your details have been dispatched to our team at{' '}
                 <strong className="text-green-deep font-semibold">{siteConfig.contact.email}</strong>.
-                We will reach out by email or phone within 24 hours to schedule your unhurried video slot.
+                We will reach out to you within 24 hours to schedule your video slot.
               </p>
 
               <div className="mt-8 rounded-xl border border-green-deep/10 bg-cream/70 p-4 text-xs text-green-deep/75 max-w-md mx-auto">
                 <p className="flex items-center justify-center gap-1.5 font-medium text-green-deep mb-1">
-                  <Mail size={14} /> Email Dispatch Confirmed
+                  <Mail size={14} /> Need an instant response?
                 </p>
-                Not on WhatsApp? No problem — our dietitians will email you directly at{' '}
-                <span className="font-semibold text-green-deep">{lastData?.email || 'your email'}</span>.
+                You can also message us directly on WhatsApp or trigger an instant email from your device below.
               </div>
 
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-solid"
                 >
-                  <MessageCircle size={16} /> Open in WhatsApp as well
+                  <MessageCircle size={16} /> Open in WhatsApp
                 </a>
-                <Link to="/" className="btn-outline">
+                <a
+                  href={mailtoUrl}
+                  className="btn-outline"
+                >
+                  <Mail size={16} /> Send via Email App
+                </a>
+                <Link to="/" className="text-sm font-medium text-green-deep/70 hover:text-green-deep transition-colors px-3 py-2">
                   Back to home
                 </Link>
               </div>
