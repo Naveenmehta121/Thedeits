@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
 
 const NAV = [
@@ -146,25 +146,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Sticky bottom mobile bar — hidden on /book */}
-      {location.pathname !== '/book' && (
-        <div className="fixed inset-x-0 bottom-0 z-40 md:hidden">
-          <div className="mx-auto mb-3 flex w-[min(94vw,32rem)] items-center gap-3 rounded-full bg-[#0B221A]/95 backdrop-blur-md border border-white/10 shadow-lg px-3 py-2.5">
-            <a
-              href={siteConfig.contact.whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="glass-pill flex-1 justify-center !py-2.5 text-sm"
-            >
-              <MessageCircle size={16} /> WhatsApp
-            </a>
-            <Link to="/book" className="glass-pill glass-pill--solid flex-1 justify-center !py-2.5 text-sm">
-              Book a Consultation
-            </Link>
-          </div>
-        </div>
-      )}
     </>
   );
 }

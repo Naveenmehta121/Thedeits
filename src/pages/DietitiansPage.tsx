@@ -138,12 +138,12 @@ export default function DietitiansPage() {
                     i % 2 === 1 ? 'md:order-2' : ''
                   }`}
                 >
-                  <div className="aspect-[4/5] w-full">
+                  <div className="aspect-[4/3] sm:aspect-[4/5] w-full">
                     <EditorialPortrait
                       src={PORTRAIT_SRCS[d.slug]}
                       alt={d.name}
                       className="h-full w-full"
-                      objectPosition="center 12%"
+                      objectPosition={d.slug === 'radha' ? 'center 58%' : 'center 62%'}
                     />
                   </div>
                   {/* Focus tag pills over portrait */}

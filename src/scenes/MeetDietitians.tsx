@@ -88,7 +88,7 @@ export default function MeetDietitians() {
                 i === 0 ? 'mt-0 md:mt-12' : 'mt-0'
               }`}
             >
-              {/* Portrait with real photo cleanly framed at aspect 4/3 */}
+              {/* Portrait with real photo cleanly framed with headroom for hair & forehead */}
               <div
                 className={`diet-portrait-${i} relative w-full aspect-[4/3] overflow-hidden bg-[#0B221A]`}
               >
@@ -96,7 +96,7 @@ export default function MeetDietitians() {
                   src={PORTRAIT_SRCS[d.slug]}
                   alt={d.name}
                   className="h-full w-full"
-                  objectPosition="center 88%"
+                  objectPosition={d.slug === 'radha' ? 'center 58%' : 'center 62%'}
                   showVignette={false}
                 />
               </div>
