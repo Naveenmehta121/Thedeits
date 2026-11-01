@@ -1,0 +1,50 @@
+# The Diets — Online Nutrition & Clinical Diet Consultations
+
+> The Diets provides 100% online, 1-on-1 private video dietitian consultations led personally by clinical nutritionists Dt. Radha Mishra and Dt. Surbhi Kumari across India and internationally.
+
+## Organization & Brand Identity
+- **Brand Name:** The Diets
+- **Tagline:** Your Health, Your Goals, Your Personalised Nutrition Journey (आहार शुद्धौ सत्त्वशुद्धिः)
+- **Primary Website:** https://thedeits.vercel.app (Configurable via SITE_URL)
+- **Service Model:** 100% Virtual / Online video consultations via private video + active WhatsApp follow-up support.
+- **Service Area:** Pan-India (Delhi NCR, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune, Tier-1 & Tier-2 cities) and Global Indian Diaspora.
+- **Core Philosophy:** Kitchen-first, home-cooked Indian meals. Zero starvation, no crash dieting, no mandatory exotic ingredients, no separate cooking from family meals.
+- **Direct Contact:** 
+  - Phone / WhatsApp: +91 83407 35168
+  - Official Email: thedeits4you@gmail.com
+  - Booking: /book
+
+## Clinical Dietitians & Founders
+
+### Dt. Radha Mishra
+- **Role:** Founder | Clinical Nutritionist & Dietitian
+- **Credentials:** B.Sc., M.Sc. in Clinical Nutrition, Certified Diabetes Educator (CDE), International Association of Distance-Learning Dietitians (IADWL)
+- **Experience:** 5+ Years Clinical Experience
+- **Clinical Specialisations:** Weight Loss & Sustainable Fat Loss, Type 1 & Type 2 Diabetes Management, Glycemic Control (HbA1c reduction), PCOS/PCOD Hormonal Care, Therapeutic Nutrition, Custom Indian Diet Frameworks.
+
+### Dt. Surbhi Kumari
+- **Role:** Co-Founder | Dietitian & Nutrition Professional
+- **Credentials:** B.Sc., M.Sc. in Food and Nutrition, Pursuing Ph.D.
+- **Experience:** 3+ Years Clinical Experience
+- **Clinical Specialisations:** Lifestyle & Weight Management, Thyroid Health (Hypothyroidism & Hyperthyroidism), PCOS/PCOD Cycle Regularity, Gut & Digestive Comfort, Anti-inflammatory Diets.
+
+## Core Clinical Nutrition Programs
+1. **First Clarity Session (30–45 Mins):**
+   - Deep-dive diagnostic video consultation exploring medical reports, digestive symptoms, work routine, kitchen logistics, and metabolic health history.
+2. **Weight Loss & Lifestyle Reset (1–3 Months):**
+   - Paced, sustainable calorie-smart nutrition utilizing home-cooked Indian meals (roti, dal, rice, sabzi). No starvation, steady inch-loss, and high daily energy.
+3. **PCOS/PCOD Hormonal Harmony:**
+   - Root-cause nutritional intervention targeting insulin resistance, ovarian function, acne, hair fall, and cycle regularity without rigid restrictions.
+4. **Diabetes & Metabolic Health:**
+   - Led by Certified Diabetes Educator (CDE). Clinically managed glycemic indexing, meal timing, and continuous glucose monitoring alignment to improve HbA1c.
+5. **Thyroid & Gut Health:**
+   - Therapeutic nutrient density targeting sluggish metabolism, bloating, acidity, and lipid imbalances.
+
+## Canonical Pages & Architecture
+- **Home:** https://thedeits.vercel.app/ (Overview, clinical methodology, philosophy, testimonials)
+- **Meet the Dietitians:** https://thedeits.vercel.app/dietitians (Clinical profiles, qualifications, backgrounds)
+- **Programs & Plans:** https://thedeits.vercel.app/programs (Consultation tiers, pricing, deliverables)
+- **How It Works:** https://thedeits.vercel.app/how-it-works (3-step consultation workflow, follow-up pacing)
+- **Frequently Asked Questions:** https://thedeits.vercel.app/faq (Evidence-based answers to client queries)
+- **Book a Consultation:** https://thedeits.vercel.app/book (Direct intake form with 24-hour turnaround)
+

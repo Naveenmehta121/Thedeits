@@ -81,7 +81,10 @@ export default function EditorialPortrait({
           <img
             src={src}
             alt={alt}
+            width="1400"
+            height="1875"
             loading="lazy"
+            decoding="async"
             onError={() => setFailed(true)}
             className="editorial-portrait-img absolute inset-0 h-full w-full object-cover"
             style={{

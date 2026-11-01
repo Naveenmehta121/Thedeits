@@ -34,7 +34,9 @@ export default function Footer() {
               <div className="space-y-3">
                 <img 
                   src="/logo.png" 
-                  alt="The Diets" 
+                  alt="The Diets - Personalised Online Nutrition" 
+                  width="220"
+                  height="56"
                   className="h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                 />
                 <p className="text-xs text-[#A3B899] font-serif tracking-wider">

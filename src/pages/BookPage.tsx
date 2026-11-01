@@ -54,11 +54,7 @@ const customResolver = async (values: FormValues) => {
 };
 
 export default function BookPage() {
-  useSeo({
-    title: 'Book a Consultation',
-    description:
-      'Request a private video nutrition consultation with Radha Mishra or Surbhi Kumari. Calm, practical guidance paced around your daily routine.',
-  });
+  useSeo();
 
   const [params] = useSearchParams();
   const preDietitian = params.get('dietitian');

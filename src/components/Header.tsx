@@ -50,6 +50,8 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="The Diets - आहार शुद्धौ सत्त्वशुद्धिः"
+              width="180"
+              height="44"
               className="h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </Link>

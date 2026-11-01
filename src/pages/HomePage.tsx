@@ -8,8 +8,10 @@ import WhatWeHelp from '@/scenes/WhatWeHelp';
 import ScrollReveal from '@/components/ScrollReveal';
 import CloseScene from '@/scenes/CloseScene';
 import FaqSection from '@/sections/FaqSection';
+import { useSeo } from '@/hooks/useSeo';
 
 export default function HomePage() {
+  useSeo();
   return (
     <>
       <Hero />

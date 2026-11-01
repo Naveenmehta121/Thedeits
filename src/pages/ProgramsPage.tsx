@@ -20,11 +20,7 @@ function slugify(name: string) {
 const POPULAR_INDEX = 2;
 
 export default function ProgramsPage() {
-  useSeo({
-    title: 'Programs',
-    description:
-      'Three calm nutrition programs from The Diets—First Clarity Session, 4-Week Rhythm Reset, and 12-Week Sustained Care. Private video consultations with flexible, home-cooked guidance.',
-  });
+  useSeo();
 
   const root = useRef<HTMLDivElement>(null);
 

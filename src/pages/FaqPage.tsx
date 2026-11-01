@@ -6,11 +6,7 @@ import { useSeo } from '@/hooks/useSeo';
 import { siteConfig } from '@/data/siteConfig';
 
 export default function FaqPage() {
-  useSeo({
-    title: 'FAQ',
-    description:
-      'Answers to common questions about The Diets—how video consultations work, what plans include, follow-up support, rescheduling, and refunds.',
-  });
+  useSeo();
 
   return (
     <>

@@ -82,11 +82,13 @@ export default function HeroSection() {
           <img
             src="/hero-bg.webp"
             alt="Dt. Radha Mishra and Dt. Surbhi Kumari at The Diets consultation desk"
+            width="2200"
+            height="1227"
             className="w-full h-full object-cover object-right-bottom"
             style={{ objectPosition: 'right bottom' }}
             loading="eager"
             // @ts-ignore
-            fetchPriority="high"
+            fetchpriority="high"
             decoding="async"
           />
 
@@ -212,11 +214,13 @@ export default function HeroSection() {
               <img
                 src="/hero-bg.webp"
                 alt="Dt. Surbhi Kumari and Dt. Radha Mishra at The Diets consultation desk"
+                width="2200"
+                height="1227"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: '77% 25%' }}
                 loading="eager"
                 // @ts-ignore
-                fetchPriority="high"
+                fetchpriority="high"
                 decoding="async"
               />
 

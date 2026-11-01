@@ -15,11 +15,7 @@ const PORTRAIT_SRCS: Record<string, string> = {
 };
 
 export default function DietitiansPage() {
-  useSeo({
-    title: 'Dietitians',
-    description:
-      'Meet Radha Mishra and Surbhi Kumari—100% online video dietitians offering calm, practical nutrition guidance for digestive, hormonal, and everyday wellbeing.',
-  });
+  useSeo();
 
   const root = useRef<HTMLDivElement>(null);
 

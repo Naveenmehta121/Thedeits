@@ -10,11 +10,7 @@ import { siteConfig } from '@/data/siteConfig';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HowItWorksPage() {
-  useSeo({
-    title: 'How It Works',
-    description:
-      'Four calm steps to begin with The Diets—share an enquiry, confirm a video slot, meet 1-on-1 by video, and receive a tailored plan with follow-up support.',
-  });
+  useSeo();
 
   const root = useRef<HTMLDivElement>(null);
 
