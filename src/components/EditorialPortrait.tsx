@@ -6,6 +6,7 @@ interface EditorialPortraitProps {
   className?: string;
   variant?: 'emerald' | 'sage';
   objectPosition?: string;
+  showVignette?: boolean;
 }
 
 /** Botanical/architectural monogram SVG fallback — no human faces. */
@@ -67,6 +68,7 @@ export default function EditorialPortrait({
   alt,
   className = '',
   objectPosition = 'center top',
+  showVignette = true,
 }: EditorialPortraitProps) {
   const [failed, setFailed] = useState(false);
 
@@ -94,14 +96,16 @@ export default function EditorialPortrait({
             style={{ background: '#1F3D33', opacity: 0.12, mixBlendMode: 'soft-light' }}
           />
           {/* Bottom vignette */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(to top, rgba(18,38,31,0.70) 0%, rgba(18,38,31,0.18) 38%, transparent 65%)',
-            }}
-          />
+          {showVignette && (
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(to top, rgba(18,38,31,0.70) 0%, rgba(18,38,31,0.18) 38%, transparent 65%)',
+              }}
+            />
+          )}
         </>
       )}
       <style>{`.editorial-portrait-frame:hover .editorial-portrait-img { transform: scale(1.04); }`}</style>

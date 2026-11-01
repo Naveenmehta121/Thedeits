@@ -42,14 +42,14 @@ export default function Header() {
         }`}
       >
         <div
-          className={`glass-header flex items-center justify-between rounded-full px-4 py-2.5 md:px-6 md:py-3 transition-all duration-500 ease-smooth ${
-            scrolled ? 'shadow-[0_10px_40px_-20px_rgba(0,0,0,0.5)]' : ''
+          className={`flex items-center justify-between rounded-full bg-[#0B221A]/95 backdrop-blur-md border border-white/10 shadow-lg px-4 py-2.5 md:px-6 md:py-3 transition-all duration-500 ease-smooth ${
+            scrolled ? 'shadow-[0_10px_40px_-20px_rgba(0,0,0,0.7)] border-white/15' : ''
           }`}
         >
           <Link className="flex items-center gap-3 group" to="/">
             <img
               src="/logo.png"
-              alt="The Diet's - आहार शुद्धौ सत्त्वशुद्धिः"
+              alt="The Diets - आहार शुद्धौ सत्त्वशुद्धिः"
               className="h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </Link>
@@ -138,7 +138,7 @@ export default function Header() {
       {/* Sticky bottom mobile bar — hidden on /book */}
       {location.pathname !== '/book' && (
         <div className="fixed inset-x-0 bottom-0 z-40 md:hidden">
-          <div className="mx-auto mb-3 flex w-[min(94vw,32rem)] items-center gap-3 rounded-full glass-header px-3 py-2.5">
+          <div className="mx-auto mb-3 flex w-[min(94vw,32rem)] items-center gap-3 rounded-full bg-[#0B221A]/95 backdrop-blur-md border border-white/10 shadow-lg px-3 py-2.5">
             <a
               href={siteConfig.contact.whatsappUrl}
               target="_blank"

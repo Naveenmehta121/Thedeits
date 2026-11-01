@@ -7,7 +7,7 @@
 
 export const siteConfig = {
   brand: {
-    name: "The Diet's",
+    name: "The Diets",
     tagline: "Your Health, Your Goals, Your Personalised Nutrition Journey.",
     logoUrl: "/logo.png",
     faviconUrl: "/favicon.png",
@@ -76,7 +76,7 @@ export const siteConfig = {
       title: 'Founder | Clinical Nutritionist & Dietitian',
       credentials: 'B.Sc., M.Sc., CDE, IADWL',
       experience: '5+ Years',
-      portraitSrc: '/images/radha-mishra.png',
+      portraitSrc: '/images/radha-mishra.webp',
       shortFocus:
         'Specialising in personalised nutrition and evidence-based dietary guidance for sustainable lifestyle changes.',
       bio: 'Dt. Radha Mishra specialises in personalised nutrition and evidence-based dietary guidance to help individuals achieve their health goals. Her approach combines scientific nutrition with practical, home-cooked meals to support sustainable lifestyle changes.',
@@ -95,7 +95,7 @@ export const siteConfig = {
       title: 'Co-Founder | Dietitian & Nutrition Professional',
       credentials: 'B.Sc., M.Sc., Pursuing Ph.D.',
       experience: '3+ Years',
-      portraitSrc: '/images/surbhi-kumari.png',
+      portraitSrc: '/images/surbhi-kumari.webp',
       shortFocus:
         'Specialising in personalised diet planning and lifestyle management for long-term wellness.',
       bio: 'Dt. Surbhi Kumari focuses on personalised diet planning and lifestyle management, helping individuals make healthier choices through practical nutritional guidance. Her goal is to make healthy eating simple, personalised, and sustainable for long-term wellness.',

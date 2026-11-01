@@ -90,7 +90,7 @@ export default function BookPage() {
       .filter(Boolean)
       .join(' | ') || 'None';
 
-    const message = `Hi, I would like to schedule a consultation with The Diet's!
+    const message = `Hi, I would like to schedule a consultation with The Diets!
 
 • Name: ${data.fullName}
 • Phone: ${data.whatsapp}

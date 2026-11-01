@@ -34,7 +34,7 @@ export default function Footer() {
               <div className="space-y-3">
                 <img 
                   src="/logo.png" 
-                  alt="The Diet's" 
+                  alt="The Diets" 
                   className="h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                 />
                 <p className="text-xs text-[#A3B899] font-serif tracking-wider">

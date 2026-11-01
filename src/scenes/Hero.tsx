@@ -80,11 +80,13 @@ export default function HeroSection() {
         {/* ── 1. Desktop Full-Bleed 16:9 Background Image (>= lg screens) ─── */}
         <div className="hidden lg:block absolute inset-0 z-0">
           <img
-            src="/hero-bg.png"
+            src="/hero-bg.webp"
             alt="Dt. Radha Mishra and Dt. Surbhi Kumari at The Diets consultation desk"
             className="w-full h-full object-cover object-right-bottom"
             style={{ objectPosition: 'right bottom' }}
             loading="eager"
+            // @ts-ignore
+            fetchPriority="high"
             decoding="async"
           />
 
@@ -208,11 +210,14 @@ export default function HeroSection() {
           <div className="hero-mobile-card block lg:hidden w-full max-w-md mt-8 mx-auto">
             <div className="relative h-[270px] sm:h-[330px] w-full rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.7)] bg-[#071914]">
               <img
-                src="/hero-bg.png"
+                src="/hero-bg.webp"
                 alt="Dt. Surbhi Kumari and Dt. Radha Mishra at The Diets consultation desk"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: '77% 25%' }}
                 loading="eager"
+                // @ts-ignore
+                fetchPriority="high"
+                decoding="async"
               />
 
               {/* Gradient vignette on card */}

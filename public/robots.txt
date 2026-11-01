@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /book
-
-Sitemap: /sitemap.xml
+Sitemap: https://thedeits.vercel.app/sitemap.xml

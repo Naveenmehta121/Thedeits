@@ -9,8 +9,8 @@ import { siteConfig } from '@/data/siteConfig';
 gsap.registerPlugin(ScrollTrigger);
 
 const PORTRAIT_SRCS: Record<string, string> = {
-  radha: '/images/radha-mishra.png',
-  surbhi: '/images/surbhi-kumari.png',
+  radha: '/images/radha-mishra.webp',
+  surbhi: '/images/surbhi-kumari.webp',
 };
 
 export default function MeetDietitians() {
@@ -39,12 +39,12 @@ export default function MeetDietitians() {
 
       // Parallax offset on the portrait columns
       gsap.to('.diet-portrait-0', {
-        yPercent: -8,
+        yPercent: -4,
         ease: 'none',
         scrollTrigger: { trigger: root.current, start: 'top bottom', end: 'bottom top', scrub: 1 },
       });
       gsap.to('.diet-portrait-1', {
-        yPercent: -14,
+        yPercent: -6,
         ease: 'none',
         scrollTrigger: { trigger: root.current, start: 'top bottom', end: 'bottom top', scrub: 1 },
       });
@@ -88,39 +88,43 @@ export default function MeetDietitians() {
                 i === 0 ? 'mt-0 md:mt-12' : 'mt-0'
               }`}
             >
-              {/* Portrait with real photo */}
+              {/* Portrait with real photo cleanly framed at aspect 4/3 */}
               <div
-                className={`diet-portrait-${i} relative overflow-hidden`}
-                style={{ height: 'clamp(380px, 55vh, 580px)' }}
+                className={`diet-portrait-${i} relative w-full aspect-[4/3] overflow-hidden bg-[#0B221A]`}
               >
                 <EditorialPortrait
                   src={PORTRAIT_SRCS[d.slug]}
                   alt={d.name}
                   className="h-full w-full"
-                  objectPosition="center 12%"
+                  objectPosition="center 88%"
+                  showVignette={false}
                 />
-
-                {/* Floating specialty pills inside portrait */}
-                <div className="absolute bottom-5 left-5 right-5 z-10 flex flex-wrap gap-2">
-                  {d.focusTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-white/20 px-3 py-1 text-[10px] font-medium text-cream backdrop-blur-md"
-                      style={{ background: 'rgba(18,38,31,0.55)' }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
 
               {/* Text content */}
               <div className="flex flex-1 flex-col p-7 md:p-9">
                 <h3 className="display-lg font-light text-green-deep">{d.name}</h3>
-                <p className="mt-2 text-sm font-medium text-green-deep/70">{d.title}</p>
+                
+                {/* Highlighted credentials & role in high-contrast dark green */}
+                <p className="mt-2 text-xs md:text-sm font-semibold text-[#0B221A] leading-snug">
+                  {d.title} • {d.credentials} • {d.experience} Exp
+                </p>
+
                 <p className="mt-4 flex-1 max-w-md text-sm leading-relaxed text-green-deep/80 text-pretty">
                   {d.shortFocus}
                 </p>
+
+                {/* Specialisation tags neatly placed inside cream card body */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {d.focusTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-[#0B221A]/15 bg-[#0B221A]/[0.06] px-3 py-1 text-xs font-medium text-[#0B221A]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
                 <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                   <Link

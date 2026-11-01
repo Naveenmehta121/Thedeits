@@ -10,8 +10,8 @@ import { siteConfig } from '@/data/siteConfig';
 gsap.registerPlugin(ScrollTrigger);
 
 const PORTRAIT_SRCS: Record<string, string> = {
-  radha: '/images/radha-mishra.png',
-  surbhi: '/images/surbhi-kumari.png',
+  radha: '/images/radha-mishra.webp',
+  surbhi: '/images/surbhi-kumari.webp',
 };
 
 export default function DietitiansPage() {
@@ -105,7 +105,7 @@ export default function DietitiansPage() {
                 style={{ borderRadius: '180px 180px 0 0', aspectRatio: '4/5' }}
               >
                 <EditorialPortrait
-                  src="/images/duo-editorial.png"
+                  src="/images/duo-editorial.webp"
                   alt="Radha Mishra and Surbhi Kumari"
                   className="h-full w-full"
                   objectPosition="center 20%"
