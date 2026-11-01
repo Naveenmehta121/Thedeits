@@ -64,27 +64,35 @@ export default function CloseScene() {
           <VideoBackground variant="emerald" src={siteConfig.videos.emerald} overlayOpacity={0.3} />
 
           <div className="relative z-10 flex min-h-[88dvh] flex-col items-center justify-center px-6 text-center">
-            <p className="close-cta eyebrow mb-8 text-cream/60">The Close</p>
-            <h2 className="close-headline display-xxl max-w-[12ch] font-light text-cream text-balance">
-              Ready to begin?
+            <p className="close-cta eyebrow mb-8 text-cream/60">Begin Your Journey</p>
+            <h2 className="close-headline display-xxl max-w-[16ch] font-light text-cream text-balance">
+              Start Your Personalised Nutrition Journey Today!
             </h2>
 
-            <div className="close-cta mt-12 flex flex-col items-center gap-5 sm:flex-row">
-              <Link to="/book" className="glass-pill glass-pill--solid">
-                Request a Consultation
-              </Link>
-            </div>
+            <p className="close-cta mt-8 max-w-2xl text-base leading-relaxed text-cream/75 text-pretty md:text-lg">
+              Your health goals are unique, and your diet should be too. Whether you want to lose weight, gain weight, manage a health condition, or improve your overall well-being, The Diets is here to guide you every step of the way.
+            </p>
 
-            <div className="close-cta mt-10 flex flex-col items-center gap-4 text-cream/80 sm:flex-row sm:gap-8">
+            <p className="close-cta mt-4 text-sm text-cream/55 text-pretty">
+              Book your consultation today and take the first step towards a healthier you!
+            </p>
+
+            <div className="close-cta mt-10 flex flex-col items-center gap-4 sm:flex-row">
+              <Link to="/book" className="glass-pill glass-pill--solid">
+                Book Your Consultation
+              </Link>
               <a
                 href={siteConfig.contact.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="quiet-link"
+                className="glass-pill"
               >
                 <MessageCircle size={16} />
-                WhatsApp · {siteConfig.contact.phone}
+                Chat on WhatsApp
               </a>
+            </div>
+
+            <div className="close-cta mt-10 flex flex-col items-center gap-4 text-cream/80 sm:flex-row sm:gap-8">
               <a href={`tel:${siteConfig.contact.phoneRaw}`} className="quiet-link">
                 <Phone size={16} />
                 {siteConfig.contact.phone}
@@ -94,6 +102,10 @@ export default function CloseScene() {
                 {siteConfig.contact.email}
               </a>
             </div>
+
+            <p className="close-cta mt-12 text-xs text-cream/30 tracking-wide">
+              The Diets — Your Health, Your Goals, Your Personalised Nutrition Journey.
+            </p>
           </div>
         </div>
       </div>

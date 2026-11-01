@@ -167,6 +167,21 @@ export default function DietitiansPage() {
                   </p>
                   <h2 className="display-xl font-light text-green-deep">{d.name}</h2>
                   <p className="mt-3 text-sm font-medium text-green-deep/70 md:text-base">{d.title}</p>
+
+                  {/* Credentials & Experience badges */}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {'credentials' in d && d.credentials && (
+                      <span className="rounded-full border border-green-deep/20 bg-sage/60 px-3.5 py-1.5 text-xs font-medium text-green-deep">
+                        {d.credentials}
+                      </span>
+                    )}
+                    {'experience' in d && d.experience && (
+                      <span className="rounded-full border border-gold/40 bg-gold/10 px-3.5 py-1.5 text-xs font-medium text-green-deep">
+                        {d.experience} Experience
+                      </span>
+                    )}
+                  </div>
+
                   <p className="mt-6 max-w-md text-sm leading-relaxed text-green-deep/80 text-pretty md:text-base">
                     {d.bio}
                   </p>
@@ -186,7 +201,7 @@ export default function DietitiansPage() {
 
                   {/* Focus areas */}
                   <div className="mt-8">
-                    <p className="eyebrow mb-4 text-green-deep/50">Focus areas</p>
+                    <p className="eyebrow mb-4 text-green-deep/50">Areas of Specialisation</p>
                     <div className="flex flex-wrap gap-2.5">
                       {d.focusTags.map((tag) => (
                         <span
@@ -210,7 +225,7 @@ export default function DietitiansPage() {
 
                   <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                     <Link to={`/book?dietitian=${d.slug}`} className="btn-solid">
-                      Book with {d.name.split(' ')[0]}
+                      Book with {d.name.split(' ').slice(-1)[0]}
                     </Link>
                     <Link to="/programs" className="ink-link text-sm font-medium">
                       View programs →

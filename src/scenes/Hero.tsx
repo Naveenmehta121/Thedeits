@@ -1,27 +1,8 @@
 import { useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ArrowDown, MessageCircle, Video } from 'lucide-react';
+import { ArrowDown, MessageCircle } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
-
-// ─── Equalizer Audio Bars for Floating Badge ────────────────────────────────
-function AudioBars() {
-  return (
-    <span className="flex items-end gap-[2px]" aria-hidden="true" style={{ height: 13 }}>
-      {[4, 9, 6, 11, 8, 5, 10].map((h, i) => (
-        <span
-          key={i}
-          className="w-[2px] rounded-full bg-[#B88A4A]"
-          style={{
-            height: `${h}px`,
-            animation: `audioPulse ${0.55 + i * 0.08}s ease-in-out infinite alternate`,
-            animationDelay: `${i * 0.07}s`,
-          }}
-        />
-      ))}
-    </span>
-  );
-}
 
 export default function HeroSection() {
   const root = useRef<HTMLElement>(null);
@@ -74,20 +55,6 @@ export default function HeroSection() {
         },
       );
 
-      // Desktop floating badge gentle entrance
-      gsap.fromTo(
-        '.hero-badge-desktop',
-        { opacity: 0, y: 20, scale: 0.96 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.1,
-          ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          delay: 0.85,
-        },
-      );
-
       // Scroll indicator pulse
       gsap.to('.hero-scroll', {
         y: 6,
@@ -105,13 +72,6 @@ export default function HeroSection() {
 
   return (
     <>
-      <style>{`
-        @keyframes audioPulse {
-          from { transform: scaleY(0.35); }
-          to { transform: scaleY(1); }
-        }
-      `}</style>
-
       <section
         ref={root}
         id="home"
@@ -260,24 +220,6 @@ export default function HeroSection() {
                 className="absolute inset-0 bg-gradient-to-t from-[#0B221A]/90 via-transparent to-transparent pointer-events-none"
                 aria-hidden="true"
               />
-
-              {/* Mobile Floating Badge (Over desk area) */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center gap-2.5 rounded-xl border border-white/20 bg-[#0A1F17]/92 px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.6)] backdrop-blur-md">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#B88A4A]/20 text-[#B88A4A] border border-[#B88A4A]/30">
-                  <Video size={13} className="text-[#B88A4A]" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[12px] font-medium text-white tracking-wide truncate">
-                    Private 1-on-1 Video Calls
-                  </p>
-                  <div className="flex items-center gap-1.5">
-                    <AudioBars />
-                    <p className="text-[10px] text-[#AEB7B0] tracking-wide">
-                      No extreme rules
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Dietitian name tag under mobile card */}
@@ -287,29 +229,6 @@ export default function HeroSection() {
             >
               Radha Mishra &amp; Surbhi Kumari
             </p>
-          </div>
-        </div>
-
-        {/* ── 4. Desktop Floating Badge Card (Anchored bottom-right over desk area) ── */}
-        <div
-          className="hero-badge-desktop hidden lg:flex absolute bottom-8 right-12 z-10 items-center gap-3.5 rounded-2xl border border-white/15 bg-[#0A1F17]/85 px-4.5 py-3 shadow-[0_16px_36px_rgba(0,0,0,0.55)] backdrop-blur-md transition-all duration-300 hover:border-white/25"
-        >
-          {/* Badge Icon */}
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#B88A4A]/20 text-[#B88A4A] border border-[#B88A4A]/30">
-            <Video size={16} className="text-[#B88A4A]" />
-          </div>
-
-          {/* Badge Content */}
-          <div className="min-w-0 pr-1">
-            <p className="text-[13px] font-medium text-white tracking-wide truncate">
-              Private 1-on-1 Video Calls
-            </p>
-            <div className="mt-1 flex items-center gap-2">
-              <AudioBars />
-              <p className="text-[11px] text-[#AEB7B0] tracking-wide">
-                No extreme rules
-              </p>
-            </div>
           </div>
         </div>
 

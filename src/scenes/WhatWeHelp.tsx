@@ -68,6 +68,11 @@ export default function WhatWeHelp() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="max-w-xl">
+                    {area.tag && (
+                      <p className="mb-2 text-xs font-medium uppercase tracking-wider text-green-deep/50">
+                        {area.tag}
+                      </p>
+                    )}
                     <h3 className="display-lg font-light text-green-deep transition-colors duration-500">
                       {area.title}
                     </h3>

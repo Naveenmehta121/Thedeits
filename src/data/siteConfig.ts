@@ -8,7 +8,7 @@
 export const siteConfig = {
   brand: {
     name: "The Diet's",
-    tagline: "आहार शुद्धौ सत्त्वशुद्धिः",
+    tagline: "Your Health, Your Goals, Your Personalised Nutrition Journey.",
     logoUrl: "/logo.png",
     faviconUrl: "/favicon.png",
     whatsappUrl: "https://wa.me/918340735168?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20The%20Diets",
@@ -21,6 +21,14 @@ export const siteConfig = {
     email: "thedeits4you@gmail.com",
     whatsappUrl: "https://wa.me/918340735168?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20The%20Diets",
   },
+  social: {
+    instagram: "https://www.instagram.com/thedietsforyou_?dlrf=MXgxOG0xcWt4YzF3Zw==",
+    facebook: "https://www.facebook.com/share/18P5EPjm6D/",
+  },
+  credits: {
+    developerName: "Silly Media",
+    developerUrl: "https://sillymedia.co.in",
+  },
 
   videos: {
     hero: '',
@@ -30,49 +38,75 @@ export const siteConfig = {
 
   focusAreas: [
     {
-      title: 'Gut & Digestive Comfort',
+      title: 'Weight Loss & Lifestyle Management',
+      tag: 'Sustainable fat loss & metabolic reset',
       description:
-        'Calm, unrestrictive adjustments for bloating, acidity, and everyday digestive ease.',
+        'Practical, calorie-smart nutrition tailored to your daily routine to help you lose weight, shed stubborn inches, and maintain high energy—without crash dieting or starvation.',
     },
     {
-      title: 'Hormonal & Metabolic Rhythm',
+      title: 'PCOS/PCOD & Hormonal Health',
+      tag: 'Cycle regularity & insulin sensitivity',
       description:
-        'Steady, supportive nutrition for PCOS, thyroid balance, and blood-sugar stability.',
+        'Targeted, anti-inflammatory nutrition protocols to address root-cause insulin resistance, manage PCOS/PCOD symptoms, reduce bloating, and restore natural hormonal balance.',
     },
     {
-      title: 'Restoring Daily Energy',
+      title: 'Diabetes & Metabolic Health',
+      tag: 'Blood sugar control & HbA1c management',
       description:
-        'Meals paced around demanding workdays, shifting schedules, and deeper rest.',
+        'Evidence-based clinical meal planning designed by a Certified Diabetes Educator (CDE) to stabilize blood glucose spikes, improve HbA1c markers, and support long-term metabolic wellness.',
     },
     {
-      title: 'Practical Home-Cooked Plates',
+      title: 'Thyroid & Therapeutic Nutrition',
+      tag: 'Hypothyroidism, gut health & clinical care',
       description:
-        'Guidance built around familiar kitchen staples—no separate cooking or extreme rules.',
+        'Nutrient-dense therapeutic diets crafted to support thyroid function, overcome sluggish metabolism, manage cholesterol/lipid profiles, and heal digestive discomfort.',
+    },
+    {
+      title: 'Healthy Indian Diet Planning',
+      tag: '100% home-cooked kitchen nutrition',
+      description:
+        'Customised daily meal plans built around familiar Indian staples—roti, dal, rice, sabzi, and local seasonal produce—adapted for working professionals, students, and families.',
     },
   ],
 
   dietitians: [
     {
       slug: 'radha',
-      name: 'Radha Mishra',
-      title: 'Lead Clinical & Lifestyle Dietitian',
+      name: 'Dt. Radha Mishra',
+      title: 'Founder | Clinical Nutritionist & Dietitian',
+      credentials: 'B.Sc., M.Sc., CDE, IADWL',
+      experience: '5+ Years',
       portraitSrc: '/images/radha-mishra.png',
       shortFocus:
-        'Specializing in digestive health, metabolic balance, and sustainable home-based routines.',
-      bio: "[Radha Mishra's full biography placeholder — edit in siteConfig.ts]",
-      qualifications: ['[Degree, Institution, Year — edit in siteConfig.ts]'],
-      focusTags: ['Gut & Digestive Comfort', 'Hormonal Rhythm', 'Everyday Indian Meals'],
+        'Specialising in personalised nutrition and evidence-based dietary guidance for sustainable lifestyle changes.',
+      bio: 'Dt. Radha Mishra specialises in personalised nutrition and evidence-based dietary guidance to help individuals achieve their health goals. Her approach combines scientific nutrition with practical, home-cooked meals to support sustainable lifestyle changes.',
+      qualifications: ['B.Sc., M.Sc., CDE, IADWL'],
+      focusTags: [
+        'Weight Loss & Weight Management',
+        'Diabetes Management',
+        'PCOS/PCOD Nutrition',
+        'Hormonal Health',
+        'Healthy Indian Diet Planning',
+      ],
     },
     {
       slug: 'surbhi',
-      name: 'Surbhi Kumari',
-      title: 'Consultant Dietitian & Nutrition Educator',
+      name: 'Dt. Surbhi Kumari',
+      title: 'Co-Founder | Dietitian & Nutrition Professional',
+      credentials: 'B.Sc., M.Sc., Pursuing Ph.D.',
+      experience: '3+ Years',
       portraitSrc: '/images/surbhi-kumari.png',
       shortFocus:
-        'Specializing in hormonal wellbeing, energy restoration, and practical meal structuring.',
-      bio: "[Surbhi Kumari's full biography placeholder — edit in siteConfig.ts]",
-      qualifications: ['[Degree, Institution, Year — edit in siteConfig.ts]'],
-      focusTags: ['PCOS & Hormonal Support', 'Energy & Workday Pacing', 'Mindful Eating'],
+        'Specialising in personalised diet planning and lifestyle management for long-term wellness.',
+      bio: 'Dt. Surbhi Kumari focuses on personalised diet planning and lifestyle management, helping individuals make healthier choices through practical nutritional guidance. Her goal is to make healthy eating simple, personalised, and sustainable for long-term wellness.',
+      qualifications: ['B.Sc., M.Sc., Pursuing Ph.D.'],
+      focusTags: [
+        'Lifestyle & Weight Management',
+        'Diabetes & Metabolic Health',
+        'PCOS/PCOD Nutrition',
+        'Thyroid Nutrition',
+        'Therapeutic Nutrition',
+      ],
     },
   ],
 
@@ -80,36 +114,46 @@ export const siteConfig = {
   programs: [
     {
       name: 'First Clarity Session',
-      forWhom: 'Anyone seeking an honest assessment of their current routine and immediate next steps.',
+      duration: '1-on-1 Video Consultation (30–45 mins)',
+      forWhom: 'First-time clients looking for a root-cause assessment and a clear starting roadmap.',
       includes: [
-        '45-minute 1-on-1 video consultation',
-        'Review of daily schedule & eating patterns',
-        'Written post-session action notes',
+        'Comprehensive health, lifestyle & medical history evaluation',
+        'Root-cause analysis of weight, gut, or hormonal challenges',
+        'Audit of your current daily eating & kitchen routine',
+        'Actionable starter nutrition guidelines & habit swaps',
+        'Personalised recommendation on the right long-term roadmap',
       ],
-      price: '[₹ Price — To be confirmed]',
+      price: '₹699',
+      mrp: '₹1,499',
     },
     {
       name: '4-Week Rhythm Reset',
-      forWhom: 'Building a steady, sustainable eating structure with close guidance.',
+      duration: '4 Weeks (1 Month)',
+      forWhom: 'Individuals seeking structured fat loss, bloating relief, and a sustainable daily food routine.',
       includes: [
-        'Initial deep-dive video consultation',
-        'Personalized, flexible meal framework',
-        'Weekly video follow-ups & WhatsApp check-ins',
-        'Adjustments for travel or busy weeks',
+        'Weekly customised, home-cooked Indian meal plans tailored to your schedule',
+        '4 weekly 1-on-1 progress & review calls with your dietitian',
+        'Practical recipes using simple kitchen ingredients (zero starvation or fad supplements)',
+        'Mon–Sat WhatsApp support for daily meal queries, dining-out choices & travel tips',
+        'Routine adjustments based on weekly body metrics and energy levels',
       ],
-      price: '[₹ Price — To be confirmed]',
+      price: '₹4,999',
+      mrp: null,
     },
     {
       name: '12-Week Sustained Care',
-      forWhom:
-        'Longer-term digestive, hormonal, or lifestyle transitions at an unhurried pace.',
+      duration: '12 Weeks (3 Months)',
+      forWhom: 'Deep metabolic & clinical transformation — PCOS/PCOD, Thyroid, Diabetes, or 8–12+ kg sustainable weight management.',
       includes: [
-        'Comprehensive intake & phased nutrition roadmap',
-        'Bi-weekly 1-on-1 video consultations',
-        'Ongoing WhatsApp support between calls',
-        'Seasonal & routine adaptations',
+        'Everything in the 4-Week Rhythm Reset, extended across 12 structured weeks',
+        'Phase-wise therapeutic diet progression (Detox & Gut Reset → Metabolic Balance → Maintenance)',
+        'Blood-work & lab parameter nutritional alignment',
+        'Symptom-specific protocol for PCOS, Thyroid, HbA1c, or hormonal balance',
+        'Priority WhatsApp support with direct dietitian access',
+        'Lifetime post-program maintenance guide to prevent weight rebound',
       ],
-      price: '[₹ Price — To be confirmed]',
+      price: '₹12,999',
+      mrp: null,
     },
   ],
 
@@ -166,11 +210,31 @@ export const siteConfig = {
     },
     {
       q: 'What is your rescheduling policy?',
-      a: '[Rescheduling policy — to be confirmed in siteConfig.ts. In general, sessions can be rescheduled with reasonable notice.]',
+      a: 'We understand that schedules can change. You can reschedule your 1-on-1 consultation free of cost by notifying us on WhatsApp (+91 83407 35168) at least 12 hours before your scheduled slot. Sessions missed without prior notice or cancelled within 4 hours of the appointment time may be counted as completed.',
     },
     {
       q: 'What is your refund policy?',
-      a: '[Refund policy — to be confirmed in siteConfig.ts. Please reach out and we will handle any concerns fairly and personally.]',
+      a: 'For single consultations (First Clarity Session), you may request a full refund up to 24 hours before your scheduled appointment, or reschedule to another convenient slot at no extra cost. For multi-week packages (4-Week Rhythm Reset and 12-Week Sustained Care), fees become non-refundable once your initial assessment is completed and your custom diet roadmap has been dispatched. However, if a medical or personal emergency arises, we gladly allow you to pause and resume your program within 90 days.',
+    },
+    {
+      q: 'What is the consultation fee and what packages do you offer?',
+      a: 'We offer three structured options: our First Clarity Session (single 1-on-1 assessment & starter roadmap) is ₹699, our 4-Week Rhythm Reset (weekly custom meal plans, 4 review calls & Mon–Sat WhatsApp support) is ₹4,999, and our comprehensive 12-Week Sustained Care program for deep metabolic, hormonal, or weight transformation is ₹12,999.',
+    },
+    {
+      q: 'Do I need to stop eating Indian food or buy expensive supplements?',
+      a: 'Not at all. Our core philosophy is built around practical, home-cooked Indian meals using ingredients already in your kitchen—like dal, roti, rice, curd, and local vegetables. We never prescribe fad diets, starvation, or expensive fat-burner supplements.',
+    },
+    {
+      q: 'How soon will I start seeing results?',
+      a: 'Most clients notice improved energy levels, better digestion, and reduced bloating within the first 7 to 10 days. Healthy, sustainable weight loss typically averages 3 to 4 kg per month alongside noticeable inch loss, while clinical markers like HbA1c, Thyroid, and PCOS symptoms show measurable improvement over 8 to 12 weeks.',
+    },
+    {
+      q: 'Do you work with men as well, or only women?',
+      a: "We work with both men and women across all age groups! While we have deep expertise in women's hormonal health (PCOS/PCOD, thyroid, post-pregnancy), a large portion of our practice focuses on weight management, diabetes reversal, cholesterol control, fatty liver, and busy-professional nutrition for men and families.",
+    },
+    {
+      q: 'What conditions do you specialise in?',
+      a: 'Dt. Radha Mishra and Dt. Surbhi Kumari specialise in Weight Loss & Weight Management, Type 2 Diabetes & Pre-diabetes, PCOS/PCOD, Hypothyroidism, Hormonal Imbalances, Cholesterol & Hypertension management, Gut Health, and Therapeutic Indian Diet Planning.',
     },
   ],
 } as const;

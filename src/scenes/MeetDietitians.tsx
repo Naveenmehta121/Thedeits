@@ -127,7 +127,7 @@ export default function MeetDietitians() {
                     to={`/book?dietitian=${d.slug}`}
                     className="btn-solid text-sm"
                   >
-                    Book with {d.name.split(' ')[0]} →
+                    Book with {d.name.replace(/^Dt\.\s*/i, '').split(' ')[0]} →
                   </Link>
                   <Link
                     to="/dietitians"

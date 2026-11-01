@@ -10,12 +10,12 @@ import { useSeo } from '@/hooks/useSeo';
 import { siteConfig } from '@/data/siteConfig';
 
 const DIETITIAN_OPTIONS = [
-  { value: 'radha', label: 'Radha Mishra' },
-  { value: 'surbhi', label: 'Surbhi Kumari' },
-  { value: 'no-preference', label: 'No preference' },
+  { value: 'radha', label: 'Dt. Radha Mishra' },
+  { value: 'surbhi', label: 'Dt. Surbhi Kumari' },
+  { value: 'no-preference', label: 'No Preference (Match me with the best fit)' },
 ];
 
-const GOAL_OPTIONS = [...siteConfig.focusAreas.map((f) => f.title), 'General consultation'];
+const GOAL_OPTIONS = [...siteConfig.focusAreas.map((f) => f.title), 'General Wellness / Other'];
 
 const schema = z.object({
   fullName: z
@@ -83,7 +83,7 @@ export default function BookPage() {
     const notes = [
       data.goal,
       data.dietitian !== 'no-preference'
-        ? `Preferred: ${data.dietitian === 'radha' ? 'Radha Mishra' : 'Surbhi Kumari'}`
+        ? `Preferred: ${data.dietitian === 'radha' ? 'Dt. Radha Mishra' : 'Dt. Surbhi Kumari'}`
         : null,
       data.message ? `Note: ${data.message}` : null,
     ]
