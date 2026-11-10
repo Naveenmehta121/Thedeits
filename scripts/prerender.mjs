@@ -107,8 +107,8 @@ function buildJsonLd(route) {
       caption: 'The Diets Logo',
     },
     image: ogImageUrl,
-    email: 'thedeits4you@gmail.com',
-    telephone: '+918340735168',
+    email: 'thediets4you@gmail.com',
+    telephone: '+919296047483',
     sameAs: [
       'https://www.instagram.com/thedietsforyou_?dlrf=MXgxOG0xcWt4YzF3Zw==',
       'https://www.facebook.com/share/18P5EPjm6D/',
@@ -136,8 +136,8 @@ function buildJsonLd(route) {
     url: `${SITE_URL}/`,
     logo: logoUrl,
     image: ogImageUrl,
-    telephone: '+918340735168',
-    email: 'thedeits4you@gmail.com',
+    telephone: '+919296047483',
+    email: 'thediets4you@gmail.com',
     priceRange: '₹₹',
     currenciesAccepted: 'INR',
     paymentAccepted: 'UPI, Net Banking, Credit Card, Debit Card',
@@ -198,12 +198,12 @@ function buildJsonLd(route) {
       {
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'degree',
-        name: 'M.Sc. Food and Nutrition',
+        name: 'B.Sc. Food and Nutrition',
       },
       {
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'degree',
-        name: 'Doctoral Research Scholar (Pursuing Ph.D.)',
+        name: 'M.Sc. Food and Nutrition',
       },
     ],
     knowsAbout: [
@@ -427,7 +427,8 @@ for (const [route, meta] of Object.entries(PAGES)) {
 
   // Preload LCP hero image and critical font
   const preloadTags = `
-    <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-bg-mobile.webp" type="image/webp" media="(max-width: 1023px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
   `;
 
   // Structured Data

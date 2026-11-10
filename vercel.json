@@ -42,7 +42,7 @@
       ]
     },
     {
-      "source": "/(hero-bg.webp|og-image.jpg|og-image.png|logo.png|favicon.png)",
+      "source": "/(hero-bg.webp|hero-bg-mobile.webp|og-image.jpg|og-image.png|logo.png|favicon.png)",
       "headers": [
         {
           "key": "Cache-Control",

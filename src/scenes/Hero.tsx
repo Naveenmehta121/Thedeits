@@ -41,20 +41,6 @@ export default function HeroSection() {
         },
       );
 
-      // Mobile card entrance
-      gsap.fromTo(
-        '.hero-mobile-card',
-        { opacity: 0, y: 28, scale: 0.98 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.1,
-          ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          delay: 0.8,
-        },
-      );
-
       // Scroll indicator pulse
       gsap.to('.hero-scroll', {
         y: 6,
@@ -75,38 +61,46 @@ export default function HeroSection() {
       <section
         ref={root}
         id="home"
-        className="relative min-h-[100dvh] w-full overflow-hidden bg-[#0B221A] flex flex-col justify-between"
+        className="relative min-h-[max(100dvh,820px)] lg:min-h-[100dvh] w-full overflow-hidden bg-[#0B221A] flex flex-col justify-between"
       >
-        {/* ── 1. Desktop Full-Bleed 16:9 Background Image (>= lg screens) ─── */}
-        <div className="hidden lg:block absolute inset-0 z-0">
-          <img
-            src="/hero-bg.webp"
-            alt="Dt. Radha Mishra and Dt. Surbhi Kumari at The Diets consultation desk"
-            width="2200"
-            height="1227"
-            className="w-full h-full object-cover object-right-bottom"
-            style={{ objectPosition: 'right bottom' }}
-            loading="eager"
-            // @ts-ignore
-            fetchpriority="high"
-            decoding="async"
+        {/* ── 1. Responsive Full-Bleed Background (9:16 Mobile / 16:9 Desktop) ─── */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <picture className="hero-picture-wrap lg:block w-full h-full">
+            <source media="(max-width: 1023px)" srcSet="/hero-bg-mobile.webp" width="1080" height="1935" />
+            <img
+              src="/hero-bg.webp"
+              alt="Dt. Radha Mishra and Dt. Surbhi Kumari at The Diets consultation desk"
+              width="2200"
+              height="1227"
+              className="hero-picture-img lg:w-full lg:h-full lg:object-cover lg:object-right-bottom"
+              loading="eager"
+              // @ts-ignore
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+
+          {/* Subtle top emerald blend on mobile for clean text legibility */}
+          <div
+            className="lg:hidden absolute inset-x-0 top-0 h-[42%] z-[1] bg-gradient-to-b from-[#0B221A] via-[#0B221A]/50 to-transparent pointer-events-none"
+            aria-hidden="true"
           />
 
           {/* Subtle Left-to-Right Gradient Overlay on desktop */}
           <div
-            className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0B221A] via-[#0B221A]/80 to-transparent lg:via-transparent pointer-events-none"
+            className="hidden lg:block absolute inset-0 z-[1] bg-gradient-to-r from-[#0B221A] via-[#0B221A]/80 to-transparent lg:via-transparent pointer-events-none"
             aria-hidden="true"
           />
 
           {/* Subtle bottom ground vignette */}
           <div
-            className="absolute inset-x-0 bottom-0 h-28 z-[2] bg-gradient-to-t from-[#0B221A] to-transparent pointer-events-none"
+            className="absolute inset-x-0 bottom-0 h-20 lg:h-28 z-[2] bg-gradient-to-t from-[#0B221A] to-transparent pointer-events-none"
             aria-hidden="true"
           />
         </div>
 
         {/* ── 2. Content Layout Grid (Responsive on all screen sizes) ───── */}
-        <div className="relative z-10 mx-auto flex flex-1 w-full max-w-7xl flex-col items-start justify-center px-6 pt-24 pb-28 md:px-12 md:pt-32 lg:flex-row lg:items-center lg:justify-between lg:pb-16">
+        <div className="relative z-10 mx-auto flex flex-1 w-full max-w-7xl flex-col items-start justify-start lg:justify-center px-6 pt-[88px] sm:pt-28 pb-12 md:px-12 md:pt-32 lg:flex-row lg:items-center lg:justify-between lg:pb-16">
 
           {/* ── Left Column Content (w-full lg:w-[48%]) ─────────────────── */}
           <div className="relative z-10 w-full lg:w-[48%] flex flex-col justify-center text-left">
@@ -167,13 +161,13 @@ export default function HeroSection() {
             </h1>
 
             {/* Sub-headline / Body */}
-            <p className="hero-fade mt-5 max-w-xl text-base leading-relaxed text-[#AEB7B0] md:text-[17px] font-sans font-normal">
+            <p className="hero-fade mt-4 lg:mt-5 max-w-xl text-base leading-relaxed text-[#AEB7B0] md:text-[17px] font-sans font-normal">
               Calm, practical clinical nutrition paced around your real schedule and
               kitchen—led 1-on-1 by Radha Mishra and Surbhi Kumari.
             </p>
 
             {/* CTAs */}
-            <div className="hero-fade mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="hero-fade mt-6 lg:mt-8 flex flex-col items-start gap-3 sm:gap-4 sm:flex-row sm:items-center">
               {/* Primary CTA: Translucent glass pill */}
               <Link
                 to="/book"
@@ -196,7 +190,7 @@ export default function HeroSection() {
             </div>
 
             {/* Subtext: Meet the Dietitians */}
-            <div className="hero-fade mt-5">
+            <div className="hero-fade mt-3.5 lg:mt-5">
               <a
                 href="#meet"
                 className="group inline-flex items-center gap-1.5 text-xs text-[#AEB7B0]/65 transition-colors duration-300 hover:text-[#AEB7B0]"
@@ -205,39 +199,6 @@ export default function HeroSection() {
                 <span className="text-xs transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
               </a>
             </div>
-          </div>
-
-          {/* ── 3. Dedicated Mobile & Tablet Visual Card (< lg screens) ─── */}
-          {/* Prominently showcases both dietitians on mobile view without awkward cropping */}
-          <div className="hero-mobile-card block lg:hidden w-full max-w-md mt-8 mx-auto">
-            <div className="relative h-[270px] sm:h-[330px] w-full rounded-2xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.7)] bg-[#071914]">
-              <img
-                src="/hero-bg.webp"
-                alt="Dt. Surbhi Kumari and Dt. Radha Mishra at The Diets consultation desk"
-                width="2200"
-                height="1227"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: '77% 25%' }}
-                loading="eager"
-                // @ts-ignore
-                fetchpriority="high"
-                decoding="async"
-              />
-
-              {/* Gradient vignette on card */}
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-[#0B221A]/90 via-transparent to-transparent pointer-events-none"
-                aria-hidden="true"
-              />
-            </div>
-
-            {/* Dietitian name tag under mobile card */}
-            <p
-              className="mt-3 text-center text-xs tracking-wider text-[#AEB7B0]/80"
-              style={{ fontFamily: "'Fraunces', Georgia, serif" }}
-            >
-              Radha Mishra &amp; Surbhi Kumari
-            </p>
           </div>
         </div>
 

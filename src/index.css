@@ -297,6 +297,35 @@
   }
 }
 
+@media (max-width: 1023px) {
+  .hero-picture-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .hero-picture-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-picture-img {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%),
+      linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%),
+      linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    mask-composite: intersect;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

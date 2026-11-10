@@ -191,7 +191,7 @@ export default function BookPage() {
 • Selected Program: ${selectedProgram}
 • Primary Goal / Note: ${notes}`;
 
-    const whatsappLink = `https://wa.me/918340735168?text=${encodeURIComponent(message)}`;
+    const whatsappLink = `https://wa.me/919296047483?text=${encodeURIComponent(message)}`;
 
     // Try opening WhatsApp in a new tab if supported
     try {
@@ -233,7 +233,7 @@ export default function BookPage() {
 • Goal / Note: ${notes || 'General'}`
       : 'Hi, I would like to schedule a consultation with The Diets!';
 
-    const whatsappUrl = `https://wa.me/918340735168?text=${encodeURIComponent(directMsg)}`;
+    const whatsappUrl = `https://wa.me/919296047483?text=${encodeURIComponent(directMsg)}`;
 
     return (
       <>

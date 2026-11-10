@@ -239,12 +239,12 @@ export function getJsonLd(path: string) {
       {
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'degree',
-        name: 'M.Sc. Food and Nutrition',
+        name: 'B.Sc. Food and Nutrition',
       },
       {
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'degree',
-        name: 'Doctoral Research Scholar (Pursuing Ph.D.)',
+        name: 'M.Sc. Food and Nutrition',
       },
     ],
     knowsAbout: [

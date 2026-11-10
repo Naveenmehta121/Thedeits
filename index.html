@@ -40,7 +40,8 @@
     />
     <meta name="twitter:image" content="https://thedeits.vercel.app/og-image.jpg" />
 
-    <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-bg-mobile.webp" type="image/webp" media="(max-width: 1023px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

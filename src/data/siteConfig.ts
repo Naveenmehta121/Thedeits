@@ -11,15 +11,15 @@ export const siteConfig = {
     tagline: "Your Health, Your Goals, Your Personalised Nutrition Journey.",
     logoUrl: "/logo.png",
     faviconUrl: "/favicon.png",
-    whatsappUrl: "https://wa.me/918340735168?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20The%20Diets",
-    whatsappDisplay: "+91 83407 35168",
-    email: "thedeits4you@gmail.com",
+    whatsappUrl: "https://wa.me/919296047483?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20The%20Diets.",
+    whatsappDisplay: "+91 92960 47483",
+    email: "thediets4you@gmail.com",
   },
   contact: {
-    phone: "+91 83407 35168",
-    phoneRaw: "+918340735168",
-    email: "thedeits4you@gmail.com",
-    whatsappUrl: "https://wa.me/918340735168?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20The%20Diets",
+    phone: "+91 92960 47483",
+    phoneRaw: "+919296047483",
+    email: "thediets4you@gmail.com",
+    whatsappUrl: "https://wa.me/919296047483?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20The%20Diets.",
   },
   social: {
     instagram: "https://www.instagram.com/thedietsforyou_?dlrf=MXgxOG0xcWt4YzF3Zw==",
@@ -96,13 +96,13 @@ export const siteConfig = {
       slug: 'surbhi',
       name: 'Dt. Surbhi Kumari',
       title: 'Co-Founder | Dietitian & Nutrition Professional',
-      credentials: 'B.Sc., M.Sc., Pursuing Ph.D.',
+      credentials: 'B.Sc., M.Sc.',
       experience: '3+ Years',
       portraitSrc: '/images/surbhi-kumari.webp',
       shortFocus:
         'Specialising in personalised diet planning and lifestyle management for long-term wellness.',
       bio: 'Dt. Surbhi Kumari focuses on personalised diet planning and lifestyle management, helping individuals make healthier choices through practical nutritional guidance. Her goal is to make healthy eating simple, personalised, and sustainable for long-term wellness.',
-      qualifications: ['B.Sc., M.Sc., Pursuing Ph.D.'],
+      qualifications: ['B.Sc., M.Sc.'],
       focusTags: [
         'Lifestyle & Weight Management',
         'Diabetes & Metabolic Health',
@@ -213,7 +213,7 @@ export const siteConfig = {
     },
     {
       q: 'What is your rescheduling policy?',
-      a: 'We understand that schedules can change. You can reschedule your 1-on-1 consultation free of cost by notifying us on WhatsApp (+91 83407 35168) at least 12 hours before your scheduled slot. Sessions missed without prior notice or cancelled within 4 hours of the appointment time may be counted as completed.',
+      a: 'We understand that schedules can change. You can reschedule your 1-on-1 consultation free of cost by notifying us on WhatsApp (+91 92960 47483) at least 12 hours before your scheduled slot. Sessions missed without prior notice or cancelled within 4 hours of the appointment time may be counted as completed.',
     },
     {
       q: 'What is your refund policy?',
