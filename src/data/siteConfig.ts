@@ -146,7 +146,7 @@ export const siteConfig = {
     {
       name: '12-Week Sustained Care',
       duration: '12 Weeks (3 Months)',
-      forWhom: 'Deep metabolic & clinical transformation — PCOS/PCOD, Thyroid, Diabetes, or 8–12+ kg sustainable weight management.',
+      forWhom: 'Deep metabolic & clinical support — PCOS/PCOD, Thyroid, Diabetes, and long-term sustainable weight management.',
       includes: [
         'Everything in the 4-Week Rhythm Reset, extended across 12 structured weeks',
         'Phase-wise therapeutic diet progression (Detox & Gut Reset → Metabolic Balance → Maintenance)',
@@ -229,11 +229,11 @@ export const siteConfig = {
     },
     {
       q: 'How soon will I start seeing results?',
-      a: 'Most clients notice improved energy levels, better digestion, and reduced bloating within the first 7 to 10 days. Healthy, sustainable weight loss typically averages 3 to 4 kg per month alongside noticeable inch loss, while clinical markers like HbA1c, Thyroid, and PCOS symptoms show measurable improvement over 8 to 12 weeks.',
+      a: 'Many clients report feeling more energetic, lighter, and experiencing better digestion within the first 7 to 10 days. A healthy pace of weight management is individualized and sustainable, focusing on steady progress, healthy habit formation, and noticeable inch loss rather than extreme numbers. Clinical indicators—such as glycemic trends, thyroid support, and PCOS symptom management—typically respond well over 8 to 12 weeks of consistent lifestyle and dietary adherence alongside guidance from your treating physician.',
     },
     {
       q: 'Do you work with men as well, or only women?',
-      a: "We work with both men and women across all age groups! While we have deep expertise in women's hormonal health (PCOS/PCOD, thyroid, post-pregnancy), a large portion of our practice focuses on weight management, diabetes reversal, cholesterol control, fatty liver, and busy-professional nutrition for men and families.",
+      a: "We work with both men and women across all age groups! While we have deep expertise in women's hormonal health (PCOS/PCOD, thyroid, post-pregnancy), a significant portion of our practice focuses on sustainable weight management, type 2 diabetes and blood sugar support, cholesterol and lipid health, fatty liver nutritional care, and busy-professional nutrition for men and families.",
     },
     {
       q: 'What conditions do you specialise in?',

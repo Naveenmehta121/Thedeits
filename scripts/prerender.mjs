@@ -309,7 +309,7 @@ function buildJsonLd(route) {
         '@type': 'Service',
         '@id': `${SITE_URL}/programs#service-3`,
         name: '12-Week Sustained Care',
-        description: 'Deep metabolic & clinical transformation — PCOS/PCOD, Thyroid, Diabetes, or 8–12+ kg sustainable weight management.',
+        description: 'Deep metabolic & clinical support — PCOS/PCOD, Thyroid, Diabetes, and long-term sustainable weight management.',
         provider: { '@id': `${SITE_URL}/#organization` },
         serviceType: 'Online Clinical Diet Consultation',
         areaServed: { '@type': 'Country', name: 'India' },
