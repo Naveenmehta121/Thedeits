@@ -136,8 +136,7 @@ export default function Footer() {
                 Privacy Policy · Terms · Medical Disclaimer
               </p>
               <p className="mt-2 max-w-xl text-xs leading-relaxed text-cream/35 text-pretty">
-                Information on this site is general guidance and is not a substitute for
-                personal medical advice.
+                Nutritional consultations provided by The Diets support lifestyle management and clinical care. Individual results vary and depend on personal health factors and adherence. Plans do not replace emergency medical treatment or advice from your treating physician. Always consult a qualified medical professional for any medical condition.
               </p>
             </div>
             <div className="text-left md:text-right space-y-1.5">

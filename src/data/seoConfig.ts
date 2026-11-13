@@ -8,7 +8,7 @@ import { siteConfig } from './siteConfig';
 export const SITE_URL = (
   (typeof process !== 'undefined' && (process.env?.SITE_URL || process.env?.VITE_SITE_URL)) ||
   (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SITE_URL) ||
-  'https://thedeits.vercel.app'
+  'https://www.thediets.in'
 ).replace(/\/+$/, '');
 
 /**

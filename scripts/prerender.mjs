@@ -23,7 +23,7 @@ const rawTemplate = fs.readFileSync(templatePath, 'utf8');
 const rawSiteUrl =
   process.env.SITE_URL ||
   process.env.VITE_SITE_URL ||
-  'https://thedeits.vercel.app';
+  'https://www.thediets.in';
 const SITE_URL = rawSiteUrl.replace(/\/+$/, '');
 
 const isTempDomain =
@@ -129,8 +129,8 @@ function buildJsonLd(route) {
     inLanguage: 'en-IN',
   };
 
-  const professionalService = {
-    '@type': 'ProfessionalService',
+  const medicalBusiness = {
+    '@type': ['MedicalBusiness', 'OnlineBusiness'],
     '@id': `${SITE_URL}/#business`,
     name: 'The Diets',
     url: `${SITE_URL}/`,
@@ -141,13 +141,44 @@ function buildJsonLd(route) {
     priceRange: '₹₹',
     currenciesAccepted: 'INR',
     paymentAccepted: 'UPI, Net Banking, Credit Card, Debit Card',
-    areaServed: {
-      '@type': 'Country',
-      name: 'India',
-    },
+    areaServed: { '@type': 'Country', name: 'India', identifier: 'IN' },
+    medicalSpecialty: ['Nutrition', 'DietarySupport'],
     serviceType: 'Online Nutrition and Diet Consultation',
     description:
       '100% private 1-on-1 online video dietitian consultations by clinical nutritionists Dt. Radha Mishra and Dt. Surbhi Kumari across India.',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Online Diet Consultation Programs',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          name: 'Single Consultation',
+          description: 'One-time 45-minute 1:1 video nutrition consultation with a clinical dietitian.',
+          price: '699',
+          priceCurrency: 'INR',
+          availability: 'https://schema.org/InStock',
+          url: `${SITE_URL}/book`,
+        },
+        {
+          '@type': 'Offer',
+          name: '1-Month Personalised Diet Program',
+          description: 'Four weekly 1:1 video sessions, custom Indian meal plan, and WhatsApp check-ins.',
+          price: '4999',
+          priceCurrency: 'INR',
+          availability: 'https://schema.org/InStock',
+          url: `${SITE_URL}/programs`,
+        },
+        {
+          '@type': 'Offer',
+          name: '3-Month Transformation Program',
+          description: 'Twelve weekly 1:1 video sessions, evolving custom meal plans, and priority WhatsApp support.',
+          price: '12999',
+          priceCurrency: 'INR',
+          availability: 'https://schema.org/InStock',
+          url: `${SITE_URL}/programs`,
+        },
+      ],
+    },
   };
 
   const radhaPerson = {
@@ -237,7 +268,7 @@ function buildJsonLd(route) {
           ],
         };
 
-  const graph = [organization, website, professionalService, radhaPerson, surbhiPerson];
+  const graph = [organization, website, medicalBusiness, radhaPerson, surbhiPerson];
   if (breadcrumbs) graph.push(breadcrumbs);
 
   if (route === '/' || route === '/programs') {

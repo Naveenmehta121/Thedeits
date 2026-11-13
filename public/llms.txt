@@ -1,11 +1,11 @@
-# The Diets — Online Nutrition & Clinical Diet Consultations
+﻿# The Diets â€” Online Nutrition & Clinical Diet Consultations
 
 > The Diets provides 100% online, 1-on-1 private video dietitian consultations led personally by clinical nutritionists Dt. Radha Mishra and Dt. Surbhi Kumari across India and internationally.
 
 ## Organization & Brand Identity
 - **Brand Name:** The Diets
-- **Tagline:** Your Health, Your Goals, Your Personalised Nutrition Journey (आहार शुद्धौ सत्त्वशुद्धिः)
-- **Primary Website:** https://thedeits.vercel.app (Configurable via SITE_URL)
+- **Tagline:** Your Health, Your Goals, Your Personalised Nutrition Journey (à¤†à¤¹à¤¾à¤° à¤¶à¥à¤¦à¥à¤§à¥Œ à¤¸à¤¤à¥à¤¤à¥à¤µà¤¶à¥à¤¦à¥à¤§à¤¿à¤ƒ)
+- **Primary Website:** https://www.thediets.in (thediets.in)
 - **Service Model:** 100% Virtual / Online video consultations via private video + active WhatsApp follow-up support.
 - **Service Area:** Pan-India (Delhi NCR, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune, Tier-1 & Tier-2 cities) and Global Indian Diaspora.
 - **Core Philosophy:** Kitchen-first, home-cooked Indian meals. Zero starvation, no crash dieting, no mandatory exotic ingredients, no separate cooking from family meals.
@@ -29,9 +29,9 @@
 - **Clinical Specialisations:** Lifestyle & Weight Management, Thyroid Health (Hypothyroidism & Hyperthyroidism), PCOS/PCOD Cycle Regularity, Gut & Digestive Comfort, Anti-inflammatory Diets.
 
 ## Core Clinical Nutrition Programs
-1. **First Clarity Session (30–45 Mins):**
+1. **First Clarity Session (30â€“45 Mins):**
    - Deep-dive diagnostic video consultation exploring medical reports, digestive symptoms, work routine, kitchen logistics, and metabolic health history.
-2. **Weight Loss & Lifestyle Reset (1–3 Months):**
+2. **Weight Loss & Lifestyle Reset (1â€“3 Months):**
    - Paced, sustainable calorie-smart nutrition utilizing home-cooked Indian meals (roti, dal, rice, sabzi). No starvation, steady inch-loss, and high daily energy.
 3. **PCOS/PCOD Hormonal Harmony:**
    - Root-cause nutritional intervention targeting insulin resistance, ovarian function, acne, hair fall, and cycle regularity without rigid restrictions.
@@ -41,10 +41,11 @@
    - Therapeutic nutrient density targeting sluggish metabolism, bloating, acidity, and lipid imbalances.
 
 ## Canonical Pages & Architecture
-- **Home:** https://thedeits.vercel.app/ (Overview, clinical methodology, philosophy, testimonials)
-- **Meet the Dietitians:** https://thedeits.vercel.app/dietitians (Clinical profiles, qualifications, backgrounds)
-- **Programs & Plans:** https://thedeits.vercel.app/programs (Consultation tiers, pricing, deliverables)
-- **How It Works:** https://thedeits.vercel.app/how-it-works (3-step consultation workflow, follow-up pacing)
-- **Frequently Asked Questions:** https://thedeits.vercel.app/faq (Evidence-based answers to client queries)
-- **Book a Consultation:** https://thedeits.vercel.app/book (Direct intake form with 24-hour turnaround)
+- **Home:** https://www.thediets.in/ (Overview, clinical methodology, philosophy, testimonials)
+- **Meet the Dietitians:** https://www.thediets.in/dietitians (Clinical profiles, qualifications, backgrounds)
+- **Programs & Plans:** https://www.thediets.in/programs (Consultation tiers, pricing, deliverables)
+- **How It Works:** https://www.thediets.in/how-it-works (3-step consultation workflow, follow-up pacing)
+- **Frequently Asked Questions:** https://www.thediets.in/faq (Evidence-based answers to client queries)
+- **Book a Consultation:** https://www.thediets.in/book (Direct intake form with 24-hour turnaround)
+
 

@@ -1,4 +1,4 @@
-# Robots.txt for The Diets (https://thedeits.vercel.app)
+# Robots.txt for The Diets (https://www.thediets.in)
 # Automatically generated build artifact
 
 # General Web Crawlers
@@ -26,6 +26,6 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /private/
 
-# AI Summary File: https://thedeits.vercel.app/llms.txt
+# AI Summary File: https://www.thediets.in/llms.txt
 # Canonical Sitemap
-Sitemap: https://thedeits.vercel.app/sitemap.xml
+Sitemap: https://www.thediets.in/sitemap.xml

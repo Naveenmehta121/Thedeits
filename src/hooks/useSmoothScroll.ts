@@ -22,6 +22,7 @@ export function useSmoothScroll() {
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
+      syncTouch: false,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
