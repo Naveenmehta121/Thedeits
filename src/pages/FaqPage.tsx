@@ -19,6 +19,7 @@ export default function FaqPage() {
       <section className="relative w-full bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-content px-6 md:px-12">
           <div className="mx-auto max-w-3xl">
+            <h2 className="sr-only">Frequently Asked Questions</h2>
             <Accordion items={[...siteConfig.faqs]} defaultOpen={0} />
 
             <div className="mt-16 rounded-[2rem] border border-green-deep/15 bg-sage/50 p-8 text-center md:p-12">

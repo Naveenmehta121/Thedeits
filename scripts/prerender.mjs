@@ -11,13 +11,19 @@ const distSsrDir = path.resolve(rootDir, 'dist-ssr');
 const entryServerPath = path.resolve(distSsrDir, 'entry-server.js');
 const { render } = await import(pathToFileURL(entryServerPath).href);
 
-// Read client index.html template
+// Read client index.html template and ensure clean #root container
 const templatePath = path.resolve(distDir, 'index.html');
 if (!fs.existsSync(templatePath)) {
   console.error('Error: dist/index.html does not exist. Run vite build first.');
   process.exit(1);
 }
-const rawTemplate = fs.readFileSync(templatePath, 'utf8');
+const initialHtml = fs.readFileSync(templatePath, 'utf8');
+const rootStart = initialHtml.indexOf('<div id="root">');
+const bodyEnd = initialHtml.indexOf('</body>');
+const rawTemplate =
+  rootStart !== -1 && bodyEnd !== -1
+    ? initialHtml.substring(0, rootStart) + '<div id="root"></div>\n  </body>\n</html>'
+    : initialHtml;
 
 // Configurable domain
 const rawSiteUrl =
@@ -38,46 +44,116 @@ const ROBOTS_DIRECTIVE = isTempDomain
 // Page-specific metadata
 const PAGES = {
   '/': {
-    title: 'Online Dietitian India | 1:1 Video Consultations — The Diets',
+    title: 'Online Dietitian India | 1:1 Diet Plans — The Diets',
     description:
-      'Personalised online diet & nutrition consultations by clinical dietitians Radha Mishra & Surbhi Kumari. Home-cooked Indian meal plans for lasting wellness.',
+      '1:1 online dietitian consultations by clinical nutritionists in India. Home-cooked Indian diet plans for weight loss, PCOS & diabetes management.',
     priority: '1.0',
     changefreq: 'weekly',
   },
   '/dietitians': {
     title: 'Clinical Dietitians in India | Radha & Surbhi — The Diets',
     description:
-      'Meet clinical dietitians Dt. Radha Mishra (M.Sc., CDE) & Dt. Surbhi Kumari (M.Sc.). 1-on-1 private video nutrition guidance for PCOS, diabetes, and weight loss.',
+      'Meet clinical dietitians Dt. Radha Mishra (M.Sc., CDE) & Dt. Surbhi Kumari (M.Sc.). 1:1 video nutrition guidance for PCOS, diabetes and weight loss.',
     priority: '0.8',
     changefreq: 'monthly',
   },
   '/programs': {
-    title: 'Online Diet Programs | Weight Loss & PCOS — The Diets',
+    title: 'Online Diet Plans | Weight Loss & PCOS — The Diets',
     description:
-      'Evidence-based online diet programs for weight loss, PCOS/PCOD, diabetes, and gut health. Home-cooked Indian meal frameworks paced for your daily routine.',
+      'Online diet plans for weight loss, PCOS and diabetes care by clinical nutritionists in India. Home-cooked meal frameworks paced around your routine.',
     priority: '0.8',
     changefreq: 'monthly',
   },
   '/how-it-works': {
     title: 'How Online Diet Consultation Works | Steps — The Diets',
     description:
-      'Learn how 1-on-1 online video nutrition works with The Diets. Simple 3-step process from dietary intake to custom home-cooked Indian meal plans & WhatsApp checks.',
+      'How online diet consultations work with The Diets: 4 steps from your initial enquiry and video call to tailored meal plans and follow-up care.',
     priority: '0.7',
     changefreq: 'monthly',
   },
   '/faq': {
-    title: 'Dietitian Consultation FAQs | Indian Meal Plans — The Diets',
+    title: 'Online Dietitian FAQs | Meal Plans & Care — The Diets',
     description:
-      'Answers to frequent questions about online dietitian consultations, meal flexibility, Indian food choices, appointment scheduling, and weekly WhatsApp support.',
+      'Answers to common questions about online dietitian consultations, meal flexibility, home-cooked Indian food plans, appointment scheduling & support.',
     priority: '0.6',
     changefreq: 'monthly',
   },
   '/book': {
-    title: 'Book Online Dietitian Consultation | Video Slot — The Diets',
+    title: 'Book Online Dietitian Consultation | The Diets',
     description:
-      'Book a private 1-on-1 video consultation with clinical dietitians Radha Mishra or Surbhi Kumari. Simple intake form with quick 24-hour consultation scheduling.',
+      'Book a private 1:1 video consultation with clinical dietitians Radha Mishra or Surbhi Kumari. Simple intake form and easy appointment scheduling.',
     priority: '0.9',
     changefreq: 'weekly',
+  },
+  '/privacy-policy': {
+    title: 'Privacy Policy | The Diets',
+    description:
+      'Privacy policy of The Diets explaining how client health intake details and consultation records are collected, stored, and protected in India.',
+    priority: '0.3',
+    changefreq: 'yearly',
+  },
+  '/terms': {
+    title: 'Terms of Service | The Diets',
+    description:
+      'Terms of service, consultation rescheduling policy, and program guidelines for 1:1 online nutrition consultations with The Diets.',
+    priority: '0.3',
+    changefreq: 'yearly',
+  },
+  '/medical-disclaimer': {
+    title: 'Medical Disclaimer | The Diets',
+    description:
+      'Medical disclaimer for The Diets: clinical nutrition guidance supports lifestyle care and does not replace emergency medical care or physician advice.',
+    priority: '0.3',
+    changefreq: 'yearly',
+  },
+  '/online-dietitian-consultation': {
+    title: 'Online Dietitian Consultation India | The Diets',
+    description:
+      '1:1 online dietitian consultation in India with clinical nutritionists. Home-cooked Indian meal plans for weight loss, PCOS and everyday health.',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  '/pcos-diet-plan': {
+    title: 'PCOS Diet Plan Online India | The Diets',
+    description:
+      'Online PCOS diet plan by clinical nutritionists in India. Home-cooked Indian meal frameworks designed around your daily lifestyle and routine.',
+    priority: '0.8',
+    changefreq: 'weekly',
+  },
+  '/weight-loss-diet-plan': {
+    title: 'Weight Loss Diet Plan Online India | The Diets',
+    description:
+      'Sustainable weight loss diet plan online by clinical dietitians in India. Kitchen-first Indian home-cooked meals for steady, healthy daily habits.',
+    priority: '0.8',
+    changefreq: 'weekly',
+  },
+  '/diabetes-diet-plan': {
+    title: 'Diabetes Diet Plan Online India | The Diets',
+    description:
+      'Online diabetes diet plan by clinical nutritionists & Certified Diabetes Educator in India. Home-cooked Indian meals planned around your routine.',
+    priority: '0.8',
+    changefreq: 'weekly',
+  },
+  '/thyroid-diet-plan': {
+    title: 'Thyroid Diet Plan Online India | The Diets',
+    description:
+      "Online thyroid diet plan by clinical dietitians in India. Home-cooked Indian meal frameworks planned alongside your treating doctor's care.",
+    priority: '0.8',
+    changefreq: 'weekly',
+  },
+  '/about': {
+    title: 'About Us | Clinical Nutritionists — The Diets',
+    description:
+      'Learn about The Diets: clinical nutritionists Dt. Radha Mishra & Dt. Surbhi Kumari providing home-cooked Indian diet consultations across India.',
+    priority: '0.6',
+    changefreq: 'monthly',
+  },
+  '/contact': {
+    title: 'Contact Us | Consultation Enquiries — The Diets',
+    description:
+      'Get in touch with The Diets for 1:1 online dietitian consultations in India. Reach out via WhatsApp or submit a consultation enquiry online.',
+    priority: '0.7',
+    changefreq: 'monthly',
   },
   '/404': {
     title: 'Page Not Found — The Diets',
@@ -85,6 +161,137 @@ const PAGES = {
     priority: '0.1',
     changefreq: 'yearly',
   },
+};
+
+const PAGE_FAQS = {
+  '/online-dietitian-consultation': [
+    {
+      q: 'What is an online dietitian consultation and how does it work?',
+      a: 'An online dietitian consultation is a private 1-on-1 video call. Your clinical dietitian reviews your daily eating routine, medical history, lifestyle stress, and recent lab reports. Following your session, you receive a personalized, home-cooked Indian meal plan with continuous WhatsApp check-ins between sessions.',
+    },
+    {
+      q: 'How effective are virtual nutrition consultations compared to clinic visits?',
+      a: 'Virtual consultations provide thorough clinical assessments while allowing greater real-world adherence. Instead of a hurried clinic visit once a month, online consultations allow you to share updates on your home meals, adjust for restaurant dining or travel over WhatsApp, and speak with your dietitian from the comfort of your kitchen.',
+    },
+    {
+      q: 'Will I need to cook separate meals from the rest of my family?',
+      a: 'No. Every diet plan is built around familiar Indian home cooking—such as dal, roti, seasonal sabzis, rice, and curd. We adjust your portion sizes, food combinations, and meal timings so you eat nourishing meals with your family without needing separate cooking.',
+    },
+    {
+      q: 'How much does an online dietitian consultation cost in India?',
+      a: 'Our single First Clarity Session is ₹699 for an in-depth 45-minute diagnostic assessment. For structured transformation, our 4-Week Rhythm Reset is ₹4,999 and the 12-Week Sustained Care program is ₹12,999, both including weekly review calls and ongoing WhatsApp guidance.',
+    },
+    {
+      q: 'What do I need to prepare before my first video consultation?',
+      a: 'You do not need intensive preparation. Having a rough idea of your typical weekday schedule, common meals prepared at home, and any recent routine blood test reports (such as HbA1c, lipid profile, or thyroid tests if available) is helpful.',
+    },
+  ],
+  '/pcos-diet-plan': [
+    {
+      q: 'Can diet alone help manage PCOS symptoms?',
+      a: 'Nutrition is recognized as the cornerstone of first-line PCOS management. Balancing macronutrients improves insulin sensitivity, which in turn helps regulate ovulation, clear skin breakouts, and assist weight management. It works alongside medical care prescribed by your physician.',
+    },
+    {
+      q: 'Do I have to eliminate dairy and gluten completely for PCOS?',
+      a: 'No. Gluten and dairy elimination is not universally required for all individuals with PCOS. Unless you have a diagnosed celiac disease or lactose intolerance, whole grains (like whole wheat, millets) and homemade curd or paneer provide high-quality protein, calcium, and probiotics.',
+    },
+    {
+      q: 'Which Indian grains are best suited for a PCOS diet?',
+      a: 'Traditional Indian millets like jowar, bajra, ragi, and foxtail millet, along with brown rice and rolled oats, provide complex carbohydrates and slow-release dietary fiber that prevent post-meal glucose spikes.',
+    },
+    {
+      q: 'How soon can I expect improvements in my menstrual cycle?',
+      a: 'Menstrual regularity and symptom relief vary widely by individual, baseline hormonal health, and overall lifestyle consistency. In clinical practice, sustained nutrition and healthy habits support metabolic and hormonal well-being over time, working alongside medical care from your treating doctor.',
+    },
+    {
+      q: 'Can I follow a vegetarian Indian diet and still manage PCOS effectively?',
+      a: 'Absolutely. A vegetarian Indian diet rich in lentils, sprouted pulses, paneer, tofu, sattu, nuts, and seeds provides complete amino acids and essential micronutrients without requiring animal protein.',
+    },
+  ],
+  '/weight-loss-diet-plan': [
+    {
+      q: 'How much weight can I safely lose per month?',
+      a: 'Healthy weight management is highly individualized and depends on baseline health, daily habits, and consistency. Rather than chasing extreme numbers on a scale, our clinical dietitians focus on steady, sustainable progress, healthy habit formation, and noticeable inch loss that you can comfortably maintain for life.',
+    },
+    {
+      q: 'Do I have to stop eating roti, rice, or dairy to lose weight?',
+      a: 'No. Weight loss occurs through an overall calorie deficit, not by demonizing wholesome traditional staples. Steamed rice, whole wheat rotis, and homemade curd provide essential energy, fiber, and micronutrients when enjoyed in balanced portions.',
+    },
+    {
+      q: 'Will I be asked to purchase supplements, teas, or meal powders?',
+      a: 'No. We never prescribe fad diets, starvation, or expensive fat-burner supplements. Our guidance focuses exclusively on wholesome, kitchen-first grocery foods prepared in your own home.',
+    },
+    {
+      q: 'How do online consultations keep me accountable without clinic weigh-ins?',
+      a: 'Virtual care provides frequent, actionable accountability through continuous WhatsApp touchpoints and scheduled weekly review calls. Rather than weighing in once a month, you receive real-time support for restaurant dinners, festive meals, and daily routine hurdles.',
+    },
+    {
+      q: 'What if I have other health concerns like diabetes, thyroid, or hypertension?',
+      a: 'Our clinical dietitians specialize in medical nutrition therapy. We review your full health profile and lab reports to design a unified meal framework that addresses weight management alongside blood sugar, blood pressure, or thyroid needs.',
+    },
+  ],
+  '/diabetes-diet-plan': [
+    {
+      q: 'Can a diet plan replace my diabetes medications or medical care?',
+      a: 'No. Nutritional planning is an essential support for daily lifestyle care, but it works alongside—never in place of—medical treatment prescribed by your physician or diabetologist. Any adjustments to your medical care or prescriptions must be made directly by your treating doctor.',
+    },
+    {
+      q: 'Can I still eat rice and roti on a diabetes diet plan?',
+      a: 'Yes. You do not need to eliminate traditional staples like roti or rice completely. Our clinical dietitians help you manage portion sizes, choose fiber-rich whole grain or millet varieties, and pair them with lentils, vegetables, and protein to slow glucose absorption.',
+    },
+    {
+      q: 'How does working with a Certified Diabetes Educator (CDE) help?',
+      a: 'A Certified Diabetes Educator has specialized clinical training in glycemic control, carbohydrate counting, and lifestyle modification. They translate complex medical targets (like fasting glucose and HbA1c) into practical, everyday Indian meals that fit your family routine.',
+    },
+    {
+      q: 'What Indian foods should I be cautious with when managing diabetes?',
+      a: 'Highly refined grains (maida), sugary snacks, sweetened beverages, fruit juices without pulp, and deep-fried namkeens cause rapid blood sugar surges. We guide you toward nourishing whole food alternatives that satisfy cravings without sharp spikes.',
+    },
+    {
+      q: 'How does online nutrition support fit with my regular doctor visits?',
+      a: 'Online consultations provide continuous dietary guidance between your doctor visits. We help you review routine blood reports, optimize daily meals around your prescribed schedule, and maintain consistent food habits that you can share with your physician.',
+    },
+  ],
+  '/thyroid-diet-plan': [
+    {
+      q: 'Can dietary changes cure hypothyroidism or replace my thyroid medicine?',
+      a: 'No. Nutrition cannot cure thyroid disorders or replace medical treatment prescribed by your doctor. Wholesome nutrition provides the essential micronutrients required for overall metabolic function, energy, and digestive health while you continue your prescribed medical treatment.',
+    },
+    {
+      q: 'Do I need to stop eating cruciferous vegetables like cabbage, cauliflower, and broccoli?',
+      a: 'No. While cruciferous vegetables contain natural compounds called goitrogens, thoroughly cooking, steaming, or boiling them substantially reduces these compounds. In everyday Indian cooking, cooked goitrogens are safe and nutritious when consumed in balanced amounts.',
+    },
+    {
+      q: 'Should I eliminate gluten and dairy if I have thyroid issues?',
+      a: 'Gluten and dairy elimination is not universally necessary for everyone with a thyroid condition. Unless you have a diagnosed celiac disease or lactose intolerance, whole wheat, millets, and homemade curd provide valuable fiber, B-vitamins, and protein.',
+    },
+    {
+      q: 'How does thyroid health affect weight management?',
+      a: 'An underactive thyroid can slow your basal metabolic rate, which may cause fluid retention and make weight loss feel slower. Rather than extreme calorie restriction—which further suppresses metabolism—we focus on nutrient-dense meals and steady lifestyle consistency.',
+    },
+    {
+      q: 'What routine blood tests should I have ready before my consultation?',
+      a: 'Having your recent thyroid panel reports (TSH, Free T3, Free T4) along with routine complete blood count (CBC) or vitamin D and B12 levels if available helps your dietitian tailor food choices to your specific nutritional needs.',
+    },
+  ],
+  '/contact': [
+    {
+      q: 'How do video consultations work?',
+      a: 'Every session is a private 1-on-1 video call. Once your slot is confirmed, you receive a secure link. You join from your phone or laptop—no clinic visit, no travel, and no app to install beyond a browser.',
+    },
+    {
+      q: 'What is your consultation rescheduling policy?',
+      a: 'You can reschedule your 1-on-1 consultation free of cost by notifying us on WhatsApp (+91 92960 47483) at least 12 hours before your scheduled slot. Sessions missed without prior notice or cancelled within 4 hours of the appointment time may be counted as completed.',
+    },
+    {
+      q: 'What hours are appointments available?',
+      a: 'Consultations are scheduled by mutual appointment across morning, afternoon, and evening slots to accommodate working professionals, homemakers, and students.',
+    },
+    {
+      q: 'Do you offer in-person clinic visits?',
+      a: 'The Diets operates 100% online. Virtual consultations allow us to review your home-cooked meals, adjust for your everyday kitchen reality, and provide continuous guidance across India without clinic travel.',
+    },
+  ],
 };
 
 // Generate JSON-LD for route
@@ -186,6 +393,11 @@ function buildJsonLd(route) {
     '@id': `${SITE_URL}/#radha-mishra`,
     name: 'Dt. Radha Mishra',
     jobTitle: 'Founder & Clinical Nutritionist',
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Clinical Nutritionist & Dietitian',
+      occupationalCategory: '29-1031.00',
+    },
     worksFor: { '@id': `${SITE_URL}/#organization` },
     image: `${SITE_URL}/images/radha-mishra.webp`,
     description:
@@ -221,6 +433,11 @@ function buildJsonLd(route) {
     '@id': `${SITE_URL}/#surbhi-kumari`,
     name: 'Dt. Surbhi Kumari',
     jobTitle: 'Co-Founder & Dietitian',
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Dietitian & Nutrition Professional',
+      occupationalCategory: '29-1031.00',
+    },
     worksFor: { '@id': `${SITE_URL}/#organization` },
     image: `${SITE_URL}/images/surbhi-kumari.webp`,
     description:
@@ -247,7 +464,7 @@ function buildJsonLd(route) {
   };
 
   const breadcrumbs =
-    route === '/'
+    route === '/' || route === '/404'
       ? null
       : {
           '@type': 'BreadcrumbList',
@@ -334,7 +551,7 @@ function buildJsonLd(route) {
           name: 'How does an online video consultation work?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'All consultations happen 100% online over private video calls (Google Meet or Zoom). We review your lifestyle, routine, past lab reports, and food preferences to build a practical, personalized nutrition plan.',
+            text: 'All consultations happen 100% online over private video calls. We review your lifestyle, routine, past lab reports, and food preferences to build a practical, personalized nutrition plan.',
           },
         },
         {
@@ -362,6 +579,101 @@ function buildJsonLd(route) {
           },
         },
       ],
+    });
+  }
+
+  if (
+    route === '/online-dietitian-consultation' ||
+    route === '/pcos-diet-plan' ||
+    route === '/weight-loss-diet-plan' ||
+    route === '/diabetes-diet-plan' ||
+    route === '/thyroid-diet-plan'
+  ) {
+    graph.push({
+      '@type': 'MedicalWebPage',
+      '@id': `${currentUrl}/#medicalpage`,
+      url: currentUrl,
+      name: PAGES[route]?.title,
+      description: PAGES[route]?.description,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${currentUrl}/#breadcrumb` },
+      inLanguage: 'en-IN',
+      aspect: 'Overview, Lifestyle, Dietary Guidance',
+      dateModified: '2026-11-16',
+      medicalAudience: {
+        '@type': 'MedicalAudience',
+        audienceType: 'Patients and individuals seeking clinical nutrition guidance',
+      },
+    });
+
+    graph.push({
+      '@type': 'Service',
+      '@id': `${currentUrl}/#service`,
+      name: PAGES[route]?.title.split('|')[0].trim() || 'Clinical Diet Consultation',
+      serviceType: 'Online Clinical Diet Consultation',
+      provider: { '@id': `${SITE_URL}/#organization` },
+      areaServed: { '@type': 'Country', name: 'India' },
+      offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'INR',
+        lowPrice: '699',
+        highPrice: '12999',
+        offerCount: '3',
+        url: `${SITE_URL}/programs`,
+      },
+    });
+  }
+
+  if (route === '/about') {
+    graph.push({
+      '@type': 'AboutPage',
+      '@id': `${currentUrl}/#aboutpage`,
+      url: currentUrl,
+      name: PAGES[route]?.title,
+      description: PAGES[route]?.description,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${currentUrl}/#breadcrumb` },
+      inLanguage: 'en-IN',
+      mainEntity: { '@id': `${SITE_URL}/#organization` },
+    });
+  }
+
+  if (route === '/contact') {
+    graph.push({
+      '@type': 'ContactPage',
+      '@id': `${currentUrl}/#contactpage`,
+      url: currentUrl,
+      name: PAGES[route]?.title,
+      description: PAGES[route]?.description,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${currentUrl}/#breadcrumb` },
+      inLanguage: 'en-IN',
+      mainEntity: {
+        '@type': 'MedicalBusiness',
+        '@id': `${SITE_URL}/#business`,
+        name: 'The Diets',
+        telephone: '+919296047483',
+        email: 'thediets4you@gmail.com',
+        url: currentUrl,
+      },
+    });
+  }
+
+  if (PAGE_FAQS[route]) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${currentUrl}/#faqpage`,
+      mainEntity: PAGE_FAQS[route].map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a,
+        },
+      })),
     });
   }
 
@@ -395,21 +707,23 @@ for (const [route, meta] of Object.entries(PAGES)) {
   html = html.replace(/<meta property="og:[^>]*>/gi, '');
   html = html.replace(/<meta name="twitter:[^>]*>/gi, '');
   html = html.replace(/<link rel="preload" as="image"[^>]*>/gi, '');
+  html = html.replace(/<link rel="canonical"[^>]*>/gi, '');
   html = html.replace(/<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
 
   // Replace Title
   html = html.replace(/<title>.*?<\/title>/i, `<title>${meta.title}</title>`);
 
-  // Replace / Inject Canonical
-  const canonicalTag = `<link rel="canonical" href="${currentUrl}" />`;
-  if (html.includes('<link rel="canonical"')) {
-    html = html.replace(/<link rel="canonical"[^>]*>/i, canonicalTag);
-  } else {
+  // Replace / Inject Canonical (404 MUST NOT have a canonical tag)
+  if (route !== '/404') {
+    const canonicalTag = `<link rel="canonical" href="${currentUrl}" />`;
     html = html.replace('</head>', `  ${canonicalTag}\n</head>`);
   }
 
-  // Inject hreflang
-  const hreflangTags = `
+  // Inject hreflang (exclude 404)
+  const hreflangTags =
+    route === '/404'
+      ? ''
+      : `
     <link rel="alternate" hreflang="en-IN" href="${currentUrl}" />
     <link rel="alternate" hreflang="x-default" href="${currentUrl}" />
   `;
@@ -422,8 +736,9 @@ for (const [route, meta] of Object.entries(PAGES)) {
     html = html.replace('</head>', `  ${descTag}\n</head>`);
   }
 
-  // Replace / Inject Robots
-  const robotsTag = `<meta name="robots" content="${ROBOTS_DIRECTIVE}" />`;
+  // Replace / Inject Robots (404 is strictly noindex, nofollow)
+  const robotsDirective = route === '/404' ? 'noindex, nofollow' : ROBOTS_DIRECTIVE;
+  const robotsTag = `<meta name="robots" content="${robotsDirective}" />`;
   if (html.includes('<meta name="robots"')) {
     html = html.replace(/<meta\s+name="robots"[^>]*>/i, robotsTag);
   } else {
@@ -531,10 +846,12 @@ Allow: /
 
 # AI Search & LLM Web Indexers (Explicitly Allowed for AI Overviews & Citation)
 User-agent: GPTBot
+User-agent: ChatGPT-User
 User-agent: ClaudeBot
 User-agent: PerplexityBot
 User-agent: Google-Extended
 User-agent: OAI-SearchBot
+User-agent: Applebot-Extended
 User-agent: anthropic-ai
 User-agent: Cohere-ai
 Allow: /
@@ -543,7 +860,6 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
 Disallow: /private/
 
 # AI Summary File: ${SITE_URL}/llms.txt

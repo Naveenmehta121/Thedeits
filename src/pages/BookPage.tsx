@@ -281,6 +281,7 @@ export default function BookPage() {
 
       <section ref={root} className="relative w-full bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-2xl px-6 md:px-12">
+          <h2 className="sr-only">Consultation Booking Intake Form</h2>
           <form
             id="booking-form"
             onSubmit={handleSubmit(onSubmit)}

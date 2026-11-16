@@ -1,18 +1,18 @@
-﻿# The Diets â€” Online Nutrition & Clinical Diet Consultations
+# The Diets — Online Nutrition & Clinical Diet Consultations
 
-> The Diets provides 100% online, 1-on-1 private video dietitian consultations led personally by clinical nutritionists Dt. Radha Mishra and Dt. Surbhi Kumari across India and internationally.
+> The Diets provides 100% online, 1-on-1 private video dietitian consultations led personally by clinical nutritionists Dt. Radha Mishra and Dt. Surbhi Kumari across India.
 
 ## Organization & Brand Identity
 - **Brand Name:** The Diets
-- **Tagline:** Your Health, Your Goals, Your Personalised Nutrition Journey (à¤†à¤¹à¤¾à¤° à¤¶à¥à¤¦à¥à¤§à¥Œ à¤¸à¤¤à¥à¤¤à¥à¤µà¤¶à¥à¤¦à¥à¤§à¤¿à¤ƒ)
-- **Primary Website:** https://www.thediets.in (thediets.in)
-- **Service Model:** 100% Virtual / Online video consultations via private video + active WhatsApp follow-up support.
-- **Service Area:** Pan-India (Delhi NCR, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune, Tier-1 & Tier-2 cities) and Global Indian Diaspora.
+- **Tagline:** Your Health, Your Goals, Your Personalised Nutrition Journey (आहार शुद्धौ सत्त्वशुद्धिः)
+- **Primary Website:** https://www.thediets.in
+- **Service Model:** 100% Virtual / Online private video consultations + active WhatsApp follow-up support.
+- **Service Area:** Pan-India (clients connect online from anywhere in India via private video link).
 - **Core Philosophy:** Kitchen-first, home-cooked Indian meals. Zero starvation, no crash dieting, no mandatory exotic ingredients, no separate cooking from family meals.
 - **Direct Contact:** 
   - Phone / WhatsApp: +91 92960 47483
   - Official Email: thediets4you@gmail.com
-  - Booking: /book
+  - Booking: https://www.thediets.in/book
 
 ## Clinical Dietitians & Founders
 
@@ -28,24 +28,34 @@
 - **Experience:** 3+ Years Clinical Experience
 - **Clinical Specialisations:** Lifestyle & Weight Management, Thyroid Health (Hypothyroidism & Hyperthyroidism), PCOS/PCOD Cycle Regularity, Gut & Digestive Comfort, Anti-inflammatory Diets.
 
-## Core Clinical Nutrition Programs
-1. **First Clarity Session (30â€“45 Mins):**
-   - Deep-dive diagnostic video consultation exploring medical reports, digestive symptoms, work routine, kitchen logistics, and metabolic health history.
-2. **Weight Loss & Lifestyle Reset (1â€“3 Months):**
-   - Paced, sustainable calorie-smart nutrition utilizing home-cooked Indian meals (roti, dal, rice, sabzi). No starvation, steady inch-loss, and high daily energy.
-3. **PCOS/PCOD Hormonal Harmony:**
-   - Root-cause nutritional intervention targeting insulin resistance, ovarian function, acne, hair fall, and cycle regularity without rigid restrictions.
-4. **Diabetes & Metabolic Health:**
-   - Led by Certified Diabetes Educator (CDE). Clinically managed glycemic indexing, meal timing, and continuous glucose monitoring alignment to improve HbA1c.
-5. **Thyroid & Gut Health:**
-   - Therapeutic nutrient density targeting sluggish metabolism, bloating, acidity, and lipid imbalances.
+## Core Clinical Nutrition Programs & Pricing
+1. **First Clarity Session (30–45 Mins) — ₹699:**
+   - Diagnostic 1:1 video consultation exploring medical reports, digestive symptoms, daily routine, kitchen logistics, and metabolic health history with starter roadmap.
+2. **4-Week Rhythm Reset (1 Month) — ₹4,999:**
+   - Four weekly 1:1 video review sessions, personalized weekly home-cooked Indian meal plans, and Mon–Sat WhatsApp checks. Paced for fat loss and habit stability.
+3. **12-Week Sustained Care (3 Months) — ₹12,999:**
+   - Twelve weekly 1:1 video sessions, progressive therapeutic meal plans, blood-work nutritional alignment, and priority WhatsApp access for PCOS, Thyroid, and long-term sustainable weight management.
 
-## Canonical Pages & Architecture
-- **Home:** https://www.thediets.in/ (Overview, clinical methodology, philosophy, testimonials)
-- **Meet the Dietitians:** https://www.thediets.in/dietitians (Clinical profiles, qualifications, backgrounds)
-- **Programs & Plans:** https://www.thediets.in/programs (Consultation tiers, pricing, deliverables)
-- **How It Works:** https://www.thediets.in/how-it-works (3-step consultation workflow, follow-up pacing)
-- **Frequently Asked Questions:** https://www.thediets.in/faq (Evidence-based answers to client queries)
-- **Book a Consultation:** https://www.thediets.in/book (Direct intake form with 24-hour turnaround)
+## Consultation Workflow (How It Works)
+1. **Share Enquiry:** Submit a short note through the booking form or WhatsApp (+91 92960 47483).
+2. **Confirm Slot:** Schedule a convenient video consultation time; receive private video link.
+3. **1-on-1 Video Session:** Comprehensive 45-minute discussion on lifestyle, food preferences, and routine.
+4. **Tailored Plan & Follow-ups:** Receive clear written meal plan notes after each session, followed by review video consultations and WhatsApp check-ins.
 
-
+## Canonical Architecture & Links
+- **Home:** https://www.thediets.in/
+- **Online Dietitian Consultation:** https://www.thediets.in/online-dietitian-consultation
+- **PCOS Diet Plan Online:** https://www.thediets.in/pcos-diet-plan
+- **Weight Loss Diet Plan Online:** https://www.thediets.in/weight-loss-diet-plan
+- **Diabetes Diet Plan Online:** https://www.thediets.in/diabetes-diet-plan
+- **Thyroid Diet Plan Online:** https://www.thediets.in/thyroid-diet-plan
+- **About The Diets:** https://www.thediets.in/about
+- **Meet the Dietitians:** https://www.thediets.in/dietitians
+- **Programs & Plans:** https://www.thediets.in/programs
+- **How It Works:** https://www.thediets.in/how-it-works
+- **Frequently Asked Questions:** https://www.thediets.in/faq
+- **Book a Consultation:** https://www.thediets.in/book
+- **Contact Us:** https://www.thediets.in/contact
+- **Privacy Policy:** https://www.thediets.in/privacy-policy
+- **Terms of Service:** https://www.thediets.in/terms
+- **Medical Disclaimer:** https://www.thediets.in/medical-disclaimer

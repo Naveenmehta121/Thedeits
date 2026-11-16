@@ -6,16 +6,23 @@ const COLS = [
   {
     head: 'Explore',
     links: [
+      { label: 'About Us', href: '/about' },
       { label: 'Dietitians', href: '/dietitians' },
       { label: 'Programs', href: '/programs' },
-      { label: 'How It Works', href: '/#how-it-works' },
-      { label: 'FAQ', href: '/#faq' },
+      { label: 'Online Consultation', href: '/online-dietitian-consultation' },
+      { label: 'PCOS Diet Plan', href: '/pcos-diet-plan' },
+      { label: 'Weight Loss Plan', href: '/weight-loss-diet-plan' },
+      { label: 'Diabetes Diet Plan', href: '/diabetes-diet-plan' },
+      { label: 'Thyroid Diet Plan', href: '/thyroid-diet-plan' },
+      { label: 'How It Works', href: '/how-it-works' },
+      { label: 'FAQ', href: '/faq' },
     ],
   },
   {
     head: 'Connect',
     links: [
       { label: 'Book a Consultation', href: '/book' },
+      { label: 'Contact Us', href: '/contact' },
       { label: 'WhatsApp', href: siteConfig.contact.whatsappUrl },
       { label: 'Instagram', href: siteConfig.social.instagram },
       { label: 'Facebook', href: siteConfig.social.facebook },
@@ -37,6 +44,8 @@ export default function Footer() {
                   alt="The Diets - Personalised Online Nutrition" 
                   width="220"
                   height="56"
+                  loading="lazy"
+                  decoding="async"
                   className="h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                 />
                 <p className="text-xs text-[#A3B899] font-serif tracking-wider">
@@ -133,7 +142,17 @@ export default function Footer() {
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
               <p className="text-xs text-cream/40">
-                Privacy Policy · Terms · Medical Disclaimer
+                <Link to="/privacy-policy" className="text-cream/40 transition-colors hover:text-cream/70">
+                  Privacy Policy
+                </Link>
+                {' · '}
+                <Link to="/terms" className="text-cream/40 transition-colors hover:text-cream/70">
+                  Terms
+                </Link>
+                {' · '}
+                <Link to="/medical-disclaimer" className="text-cream/40 transition-colors hover:text-cream/70">
+                  Medical Disclaimer
+                </Link>
               </p>
               <p className="mt-2 max-w-xl text-xs leading-relaxed text-cream/35 text-pretty">
                 Nutritional consultations provided by The Diets support lifestyle management and clinical care. Individual results vary and depend on personal health factors and adherence. Plans do not replace emergency medical treatment or advice from your treating physician. Always consult a qualified medical professional for any medical condition.
