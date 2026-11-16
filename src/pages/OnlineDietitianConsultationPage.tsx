@@ -12,7 +12,7 @@ const FAQS = [
   },
   {
     q: 'How effective are virtual nutrition consultations compared to clinic visits?',
-    a: 'Virtual consultations provide thorough clinical assessments while allowing greater real-world adherence. Instead of a hurried clinic visit once a month, online consultations allow you to share updates on your home meals, adjust for restaurant dining or travel over WhatsApp, and speak with your dietitian from the comfort of your kitchen.',
+    a: 'Virtual consultations are convenient and let you apply guidance in your own kitchen. You can share updates on your meals, discuss adjustments for dining out or travel over WhatsApp, and speak with your dietitian from home without travelling to a clinic.',
   },
   {
     q: 'Will I need to cook separate meals from the rest of my family?',

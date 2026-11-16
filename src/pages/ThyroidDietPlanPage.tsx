@@ -12,7 +12,7 @@ const FAQS = [
   },
   {
     q: 'Do I need to stop eating cruciferous vegetables like cabbage, cauliflower, and broccoli?',
-    a: 'No. While cruciferous vegetables contain natural compounds called goitrogens, thoroughly cooking, steaming, or boiling them substantially reduces these compounds. In everyday Indian cooking, cooked goitrogens are safe and nutritious when consumed in balanced amounts.',
+    a: 'Vegetables such as cabbage and cauliflower are healthy in normal cooked portions as part of a balanced diet. If you have concerns about them, ask your doctor.',
   },
   {
     q: 'Should I eliminate gluten and dairy if I have thyroid issues?',
@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     q: 'What routine blood tests should I have ready before my consultation?',
-    a: 'Having your recent thyroid panel reports (TSH, Free T3, Free T4) along with routine complete blood count (CBC) or vitamin D and B12 levels if available helps your dietitian tailor food choices to your specific nutritional needs.',
+    a: "Keep your recent reports handy. Reading them and making any medicine decision is for your treating doctor; we plan meals around your routine and your doctor's advice.",
   },
 ];
 
@@ -34,9 +34,6 @@ export default function ThyroidDietPlanPage() {
   return (
     <>
       {/* Last updated: 2026-11-16 */}
-      {/* [TODO: dietitian to confirm therapeutic guidelines on goitrogenic food preparation and cooking] */}
-      {/* [TODO: dietitian to confirm micronutrient focus: selenium, zinc, iodine food choices] */}
-      {/* [TODO: dietitian to confirm tyrosine protein recommendations for thyroid support] */}
       <PageHero
         eyebrow="Therapeutic Thyroid Nutrition"
         title="Online Thyroid Diet Plan &amp; Metabolic Nutrition in India"
@@ -99,28 +96,28 @@ export default function ThyroidDietPlanPage() {
                 <div className="rounded-2xl border border-green-deep/15 bg-sage/20 p-6">
                   <h3 className="text-base font-semibold text-green-deep">Essential Micronutrient Density</h3>
                   <p className="mt-2 text-xs leading-relaxed text-green-deep/75">
-                    We emphasize natural Indian food sources of selenium (walnuts, sunflower seeds), zinc (pumpkin seeds, lentils, sesame), and adequate iodine from iodized household salt.
+                    Thyroid health depends on a few nutrients, including iodine, selenium and zinc, which most people get from a varied diet that includes iodised salt, pulses, nuts and seeds. Avoid starting supplements unless your doctor advises it.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-green-deep/15 bg-sage/20 p-6">
                   <h3 className="text-base font-semibold text-green-deep">Safe Cooking for Goitrogenic Foods</h3>
                   <p className="mt-2 text-xs leading-relaxed text-green-deep/75">
-                    Cruciferous vegetables (cabbage, cauliflower, mustard greens) contain goitrogens that can compete with iodine. Thorough boiling, steaming, or cooking in curries deactivates these compounds, making them completely safe.
+                    Vegetables such as cabbage and cauliflower are healthy in normal cooked portions as part of a balanced diet. If you have concerns about them, ask your doctor.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-green-deep/15 bg-sage/20 p-6">
                   <h3 className="text-base font-semibold text-green-deep">Adequate Protein Distribution</h3>
                   <p className="mt-2 text-xs leading-relaxed text-green-deep/75">
-                    Protein provides the amino acid tyrosine, a key building block for thyroid hormones. We integrate sprouted moong, paneer, tofu, sattu, lentils, and curd across all daily meals.
+                    Including protein at each meal, such as dal, curd, paneer, eggs, fish or chicken, supports overall nutrition.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-green-deep/15 bg-sage/20 p-6">
                   <h3 className="text-base font-semibold text-green-deep">Gut Motility &amp; Fiber Care</h3>
                   <p className="mt-2 text-xs leading-relaxed text-green-deep/75">
-                    Sluggish digestion and constipation are common in hypothyroidism. We use soothing spices (jeera, ajwain), cooked vegetables, and gentle hydration to keep digestion moving comfortably.
+                    Fibre, enough fluids, regular meals and light daily movement support digestive comfort. Spices such as jeera and ajwain are traditionally used in Indian kitchens.
                   </p>
                 </div>
               </div>

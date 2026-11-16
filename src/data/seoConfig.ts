@@ -261,7 +261,7 @@ export const PAGE_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: 'How effective are virtual nutrition consultations compared to clinic visits?',
-      a: 'Virtual consultations provide thorough clinical assessments while allowing greater real-world adherence. Instead of a hurried clinic visit once a month, online consultations allow you to share updates on your home meals, adjust for restaurant dining or travel over WhatsApp, and speak with your dietitian from the comfort of your kitchen.',
+      a: 'Virtual consultations are convenient and let you apply guidance in your own kitchen. You can share updates on your meals, discuss adjustments for dining out or travel over WhatsApp, and speak with your dietitian from home without travelling to a clinic.',
     },
     {
       q: 'Will I need to cook separate meals from the rest of my family?',
@@ -291,7 +291,7 @@ export const PAGE_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: 'How soon can I expect improvements in my menstrual cycle?',
-      a: 'Menstrual regularity and symptom relief vary widely by individual, baseline hormonal health, and overall lifestyle consistency. In clinical practice, sustained nutrition and healthy habits support metabolic and hormonal well-being over time, working alongside medical care from your treating doctor.',
+      a: "Changes in cycles vary widely from person to person. Discuss any concerns with your gynaecologist or doctor. Sustained nutrition and healthy daily habits support metabolic and overall well-being over time alongside your doctor's care.",
     },
     {
       q: 'Can I follow a vegetarian Indian diet and still manage PCOS effectively?',
@@ -301,7 +301,7 @@ export const PAGE_FAQS: Record<string, Array<{ q: string; a: string }>> = {
   '/weight-loss-diet-plan': [
     {
       q: 'How much weight can I safely lose per month?',
-      a: 'Healthy weight management is highly individualized and depends on baseline health, daily habits, and consistency. Rather than chasing extreme numbers on a scale, our clinical dietitians focus on steady, sustainable progress, healthy habit formation, and noticeable inch loss that you can comfortably maintain for life.',
+      a: 'Gradual loss is generally considered safer and easier to sustain than rapid loss. Many guidelines suggest around 0.5 to 1 kg per week for most adults, but individual needs vary and your plan is personalised. Rather than chasing extreme numbers, our clinical dietitians focus on steady progress, healthy habit formation, and noticeable inch loss that you can comfortably maintain for life.',
     },
     {
       q: 'Do I have to stop eating roti, rice, or dairy to lose weight?',
@@ -331,7 +331,7 @@ export const PAGE_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: 'How does working with a Certified Diabetes Educator (CDE) help?',
-      a: 'A Certified Diabetes Educator has specialized clinical training in glycemic control, carbohydrate counting, and lifestyle modification. They translate complex medical targets (like fasting glucose and HbA1c) into practical, everyday Indian meals that fit your family routine.',
+      a: "A Certified Diabetes Educator is trained in diabetes education and lifestyle support, helping translate nutrition guidance into practical meals that fit your family routine. Nutrition works alongside, never in place of, your doctor's treatment and monitoring.",
     },
     {
       q: 'What Indian foods should I be cautious with when managing diabetes?',
@@ -349,7 +349,7 @@ export const PAGE_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: 'Do I need to stop eating cruciferous vegetables like cabbage, cauliflower, and broccoli?',
-      a: 'No. While cruciferous vegetables contain natural compounds called goitrogens, thoroughly cooking, steaming, or boiling them substantially reduces these compounds. In everyday Indian cooking, cooked goitrogens are safe and nutritious when consumed in balanced amounts.',
+      a: 'Vegetables such as cabbage and cauliflower are healthy in normal cooked portions as part of a balanced diet. If you have concerns about them, ask your doctor.',
     },
     {
       q: 'Should I eliminate gluten and dairy if I have thyroid issues?',
@@ -361,7 +361,7 @@ export const PAGE_FAQS: Record<string, Array<{ q: string; a: string }>> = {
     },
     {
       q: 'What routine blood tests should I have ready before my consultation?',
-      a: 'Having your recent thyroid panel reports (TSH, Free T3, Free T4) along with routine complete blood count (CBC) or vitamin D and B12 levels if available helps your dietitian tailor food choices to your specific nutritional needs.',
+      a: "Keep your recent reports handy. Reading them and making any medicine decision is for your treating doctor; we plan meals around your routine and your doctor's advice.",
     },
   ],
   '/contact': [

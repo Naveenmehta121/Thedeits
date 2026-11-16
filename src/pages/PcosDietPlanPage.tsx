@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: 'How soon can I expect improvements in my menstrual cycle?',
-    a: 'Menstrual regularity and symptom relief vary widely by individual, baseline hormonal health, and overall lifestyle consistency. In clinical practice, sustained nutrition and healthy habits support metabolic and hormonal well-being over time, working alongside medical care from your treating doctor.',
+    a: "Changes in cycles vary widely from person to person. Discuss any concerns with your gynaecologist or doctor. Sustained nutrition and healthy daily habits support metabolic and overall well-being over time alongside your doctor's care.",
   },
   {
     q: 'Can I follow a vegetarian Indian diet and still manage PCOS effectively?',
@@ -34,8 +34,6 @@ export default function PcosDietPlanPage() {
   return (
     <>
       {/* Last updated: 2026-11-16 */}
-      {/* [TODO: dietitian to confirm cycle regularity timeframe] */}
-      {/* [TODO: dietitian to confirm clinical phrasing on insulin resistance prevalence] */}
       <PageHero
         eyebrow="Hormonal Health &amp; PCOS Care"
         title="Online PCOS Diet Plan &amp; Hormonal Nutrition in India"
@@ -62,7 +60,7 @@ export default function PcosDietPlanPage() {
                 Understanding PCOS and Insulin Resistance in India
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-green-deep/80">
-                Polycystic Ovary Syndrome affects millions of women across India. While often perceived primarily as a reproductive issue, PCOS is deeply connected with metabolic and endocrine health. Many individuals with PCOS experience underlying insulin resistance—a state where cells do not respond effectively to insulin, causing the pancreas to produce more.
+                Polycystic Ovary Syndrome affects millions of women across India. While often perceived primarily as a reproductive issue, PCOS is deeply connected with metabolic and endocrine health. Insulin resistance is common in PCOS, though it does not affect everyone. In insulin resistance, cells do not respond effectively to insulin, causing the pancreas to produce more.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-green-deep/80">
                 Elevated circulating insulin stimulates the ovaries to produce excess androgens (male hormones), leading to classic PCOS symptoms including irregular or missed periods, facial hair growth (hirsutism), adult acne, scalp hair thinning, and central abdominal weight gain.

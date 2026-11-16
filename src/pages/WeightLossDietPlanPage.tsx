@@ -8,7 +8,7 @@ import { siteConfig } from '@/data/siteConfig';
 const FAQS = [
   {
     q: 'How much weight can I safely lose per month?',
-    a: 'Healthy weight management is highly individualized and depends on baseline health, daily habits, and consistency. Rather than chasing extreme numbers on a scale, our clinical dietitians focus on steady, sustainable progress, healthy habit formation, and noticeable inch loss that you can comfortably maintain for life.',
+    a: 'Gradual loss is generally considered safer and easier to sustain than rapid loss. Many guidelines suggest around 0.5 to 1 kg per week for most adults, but individual needs vary and your plan is personalised. Rather than chasing extreme numbers, our clinical dietitians focus on steady progress, healthy habit formation, and noticeable inch loss that you can comfortably maintain for life.',
   },
   {
     q: 'Do I have to stop eating roti, rice, or dairy to lose weight?',
@@ -34,7 +34,6 @@ export default function WeightLossDietPlanPage() {
   return (
     <>
       {/* Last updated: 2026-11-16 */}
-      {/* [TODO: dietitian to confirm numerical weight loss rate recommendations] */}
       <PageHero
         eyebrow="Sustainable Lifestyle Care"
         title="Online Weight Loss Diet Plan in India"

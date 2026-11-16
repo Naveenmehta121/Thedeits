@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     q: 'How does working with a Certified Diabetes Educator (CDE) help?',
-    a: 'A Certified Diabetes Educator has specialized clinical training in glycemic control, carbohydrate counting, and lifestyle modification. They translate complex medical targets (like fasting glucose and HbA1c) into practical, everyday Indian meals that fit your family routine.',
+    a: "A Certified Diabetes Educator is trained in diabetes education and lifestyle support, helping translate nutrition guidance into practical meals that fit your family routine. Nutrition works alongside, never in place of, your doctor's treatment and monitoring.",
   },
   {
     q: 'What Indian foods should I be cautious with when managing diabetes?',
@@ -34,8 +34,6 @@ export default function DiabetesDietPlanPage() {
   return (
     <>
       {/* Last updated: 2026-11-16 */}
-      {/* [TODO: dietitian to confirm clinical phrasing for glycemic index recommendations] */}
-      {/* [TODO: dietitian to confirm specific fiber and protein pairing protocols] */}
       <PageHero
         eyebrow="Clinical Diabetes &amp; Glycemic Care"
         title="Online Diabetes Diet Plan &amp; Blood Sugar Nutrition in India"
@@ -98,21 +96,21 @@ export default function DiabetesDietPlanPage() {
                 <div className="rounded-2xl border border-green-deep/15 bg-sage/20 p-6">
                   <h3 className="text-base font-semibold text-green-deep">Smart Carbohydrate Selection</h3>
                   <p className="mt-2 text-xs leading-relaxed text-green-deep/75">
-                    We transition from refined flours (maida) to traditional whole grains and millets—such as jowar, bajra, ragi, and steel-cut oats—which digest slowly and release glucose gradually into the bloodstream.
+                    Whole grains and millets such as jowar, bajra and ragi contain more fibre than refined flour (maida).
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-green-deep/15 bg-sage/20 p-6">
                   <h3 className="text-base font-semibold text-green-deep">Carbohydrate &amp; Protein Pairing</h3>
                   <p className="mt-2 text-xs leading-relaxed text-green-deep/75">
-                    Carbohydrates are never eaten in isolation. Pairing roti or rice with protein-dense lentils, sprouted pulses, paneer, tofu, or curd blunts the glycemic response and prolongs satiety.
+                    Eating carbohydrate foods together with vegetables, protein and fibre generally causes a slower rise in blood sugar than eating refined carbohydrates alone.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-green-deep/15 bg-sage/20 p-6">
                   <h3 className="text-base font-semibold text-green-deep">High Dietary Fiber Intake</h3>
                   <p className="mt-2 text-xs leading-relaxed text-green-deep/75">
-                    Abundant soluble and insoluble fiber from green leafy vegetables, cucumbers, methi, and flaxseeds forms a gel in the digestive tract that slows glucose absorption and supports gut health.
+                    Fibre-rich foods include leafy greens, pulses, vegetables, methi and flaxseeds.
                   </p>
                 </div>
 
@@ -131,7 +129,7 @@ export default function DiabetesDietPlanPage() {
                 Led by a Certified Diabetes Educator (CDE)
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-green-deep/80">
-                At The Diets, diabetes nutrition guidance is directed by founder Dt. Radha Mishra, an experienced Clinical Nutritionist (M.Sc.) and Certified Diabetes Educator (CDE) with 5+ years of clinical experience. Her specialized background in glycemic care ensures that meal frameworks are medically sound, practical, and tailored to your daily routine.
+                At The Diets, diabetes nutrition guidance is directed by founder Dt. Radha Mishra, an experienced Clinical Nutritionist (M.Sc.) and Certified Diabetes Educator (CDE) with 5+ years of clinical experience. A Certified Diabetes Educator is trained in diabetes education and lifestyle support. Nutrition works alongside, never in place of, your doctor's treatment and monitoring.
               </p>
               <div className="mt-4 pt-3 border-t border-green-deep/10">
                 <Link to="/dietitians" className="text-xs font-medium underline text-green-deep">

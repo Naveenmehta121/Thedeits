@@ -140,4 +140,34 @@ This file tracks all items, disclosures, and legal notices that require client c
    - Main client chunk (`dist/assets/index-D82N_Kax.js`, ~805 KB uncompressed / 251 KB gzip) contains essential runtime libraries: React 18, React DOM, React Router v7, Framer Motion, GSAP, Lenis Smooth Scroll, Supabase JS, React Hook Form, and Zod.
    - Dynamic `React.lazy()` route splitting was evaluated and deliberately avoided because synchronous `renderToString` in the static SSG prerender pipeline would throw errors or render empty `Suspense` fallbacks, wiping out pre-rendered HTML for search bots and causing hydration mismatches for GSAP/Lenis scroll positioning. Current static prerendering guarantees 100% crawlable raw HTML across all 17 routes.
 
+---
+
+## 12. Nutrition Statements Fill-Only Audit (General Educational Guidance)
+
+All clinical and nutrition statements flagged with `[TODO: dietitian to confirm ...]` have been updated strictly using safe, general nutritional guidance. Per instructions, these are marked: **"filled with general guidance, not professionally reviewed"**. 
+
+Business-fact items (delivery turnaround, registration numbers, address, operating hours, legal policies) are deliberately **kept open** with their hidden comments preserved.
+
+| Location | Original Statement | Updated Statement | Status |
+|---|---|---|---|
+| `/thyroid-diet-plan` (Pillar 1) | Natural food sources of selenium, zinc, iodine | *"Thyroid health depends on a few nutrients, including iodine, selenium and zinc, which most people get from a varied diet that includes iodised salt, pulses, nuts and seeds. Avoid starting supplements unless your doctor advises it."* | **Filled with general guidance, not professionally reviewed** |
+| `/thyroid-diet-plan` (Pillar 2 & FAQ 1) | Goitrogens deactivated by boiling/cooking | *"Vegetables such as cabbage and cauliflower are healthy in normal cooked portions as part of a balanced diet. If you have concerns about them, ask your doctor."* | **Filled with general guidance, not professionally reviewed** |
+| `/thyroid-diet-plan` (Pillar 3) | Protein provides tyrosine building block | *"Including protein at each meal, such as dal, curd, paneer, eggs, fish or chicken, supports overall nutrition."* (removed "tyrosine") | **Filled with general guidance, not professionally reviewed** |
+| `/thyroid-diet-plan` (Pillar 4) | Sluggish digestion & soothing spices | *"Fibre, enough fluids, regular meals and light daily movement support digestive comfort. Spices such as jeera and ajwain are traditionally used in Indian kitchens."* | **Filled with general guidance, not professionally reviewed** |
+| `/thyroid-diet-plan` (FAQ 4) | Routine thyroid panel preparation (TSH, Free T3, Free T4) | *"Keep your recent reports handy. Reading them and making any medicine decision is for your treating doctor; we plan meals around your routine and your doctor's advice."* | **Filled with general guidance, not professionally reviewed** |
+| `/diabetes-diet-plan` (Pillar 1) | Transitioning from maida to whole grains/millets | *"Whole grains and millets such as jowar, bajra and ragi contain more fibre than refined flour (maida)."* | **Filled with general guidance, not professionally reviewed** |
+| `/diabetes-diet-plan` (Pillar 2) | Carbohydrate and protein pairing blunts glycemic surges | *"Eating carbohydrate foods together with vegetables, protein and fibre generally causes a slower rise in blood sugar than eating refined carbohydrates alone."* | **Filled with general guidance, not professionally reviewed** |
+| `/diabetes-diet-plan` (Pillar 3) | High dietary fiber intake (methi, flaxseeds) | *"Fibre-rich foods include leafy greens, pulses, vegetables, methi and flaxseeds."* | **Filled with general guidance, not professionally reviewed** |
+| `/diabetes-diet-plan` (CDE section & FAQ 2) | CDE carbohydrate counting & glycemic control | *"A Certified Diabetes Educator is trained in diabetes education and lifestyle support, helping translate nutrition guidance into practical meals that fit your family routine. Nutrition works alongside, never in place of, your doctor's treatment and monitoring."* (removed carb counting claim) | **Filled with general guidance, not professionally reviewed** |
+| `/pcos-diet-plan` (Section 2) | Many individuals experience underlying insulin resistance | *"Insulin resistance is common in PCOS, though it does not affect everyone. In insulin resistance, cells do not respond effectively to insulin, causing the pancreas to produce more."* | **Filled with general guidance, not professionally reviewed** |
+| `/pcos-diet-plan` (FAQ 3) | Menstrual cycle regularity timeframe | *"Changes in cycles vary widely from person to person. Discuss any concerns with your gynaecologist or doctor. Sustained nutrition and healthy daily habits support metabolic and overall well-being over time alongside your doctor's care."* | **Filled with general guidance, not professionally reviewed** |
+| `/weight-loss-diet-plan` (FAQ 0) | Safe weight loss rate per month | *"Gradual loss is generally considered safer and easier to sustain than rapid loss. Many guidelines suggest around 0.5 to 1 kg per week for most adults, but individual needs vary and your plan is personalised. Rather than chasing extreme numbers, our clinical dietitians focus on steady progress, healthy habit formation, and noticeable inch loss that you can comfortably maintain for life."* | **Filled with general guidance, not professionally reviewed** |
+| `/online-dietitian-consultation` (FAQ 1) | Virtual consultations offer greater real-world adherence than clinic visits | *"Virtual consultations are convenient and let you apply guidance in your own kitchen. You can share updates on your meals, discuss adjustments for dining out or travel over WhatsApp, and speak with your dietitian from home without travelling to a clinic."* | **Filled with general guidance, not professionally reviewed** |
+| `/online-dietitian-consultation` (Line 37) | Plan delivery turnaround time | Kept generic: *"After your session you receive written notes and your custom meal framework..."* | **Kept open** (hidden JSX comment preserved; business fact) |
+| `/contact` (Line 33) | Standard weekday and weekend appointment hours | Kept generic: *"Consultations are scheduled by mutual appointment across morning, afternoon, and evening slots..."* | **Kept open** (hidden JSX comment preserved; business fact) |
+| `/privacy-policy` | Registered business address, DPDP Act review | Placeholder comments preserved | **Kept open** (business/legal fact) |
+| `/terms` | Rescheduling/cancellation windows, IP policy, emergency pause terms | Generic drafts with legal review comments | **Kept open** (legal review) |
+| `/medical-disclaimer` | Medical safety review | Generic draft with legal review comments | **Kept open** (legal review) |
+
+
 
